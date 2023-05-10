@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DJ Market</title>
+  <link rel="icon" href="assets/img/icon.png">
+  <meta name = “theme-color” content = “#16161a>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="left">
+        <img src="assets/img/icon.png" alt="Logo" class="logo">
+        <strong>DJ MARKET</strong>
+      </div>
+      <div class="menuToggle" onclick="toggleMenu()"></div>
+      <div class="rigth">
+        <li><a href="#" onclick="toggleMenu()">Contratación</a></li>
+        <li><a href="#" onclick="toggleMenu()">Comprobante</a></li>
+        <li><a href="#" onclick="toggleMenu()">Admin</a></li>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="content-main">
+      <div class="text">
+        <h1>DJ Market</h1>
+        <p>¡Contrata el DJ de tu preferencia!</p>
+      </div>
+    </section>
+    <section class="dj">
+      <h2>Dj's Populares</h2>
+      <hr>
+      <article class="person">
+        <img src="assets/img/martinGarrix.jpg" alt="Martin Garrix">
+        <h3>Martin Garrix</h3>
+      </article>
+      <article class="person">
+        <img src="assets/img/davidGuetta.jpg" alt="David Guetta">
+        <h3>David Guetta</h3>
+      </article>
+      <article class="person">
+        <img src="assets/img/dimitriMike.jpg" alt="Dimitri Vegas & Like Mike">
+        <h3>Dimitri Vegas & Like Mike</h3>
+      </article>
+      <article class="person">
+        <img src="assets/img/alok.jpg" alt="Alok">
+        <h3>Alok</h3>
+      </article>
+    </section>
+    <section class="places-economics">
+      <h2>Lugares ecónomicos</h2>
+      <hr>
+      <article class="person">
+        <img src="assets/img/economico1.webp" alt="Lugar Economico 1">
+        <h3>Lugar economico 1</h3>
+      </article>
+      <article class="person">
+        <img src="assets/img/economico2.jpg" alt="Lugar Economico 2">
+        <h3>Lugar economico 2</h3>
+      </article>
+      <article class="person">
+        <img src="assets/img/economico3.jpg" alt="Lugar Economico 3">
+        <h3>Lugar economico 3</h3>
+      </article>
+    </section>
+    <section class="places-ejecutivs">
+      <h2>Lugares ejecutivos</h2>
+      <hr>
+      <article class="person">
+        <img src="assets/img/ejecutivo1.jpg" alt="Lugar Ejecutivo 1">
+        <h3>Lugar ejecutivo 1</h3>
+      </article>
+      <article class="person">
+        <img src="assets/img/ejecutivo2.jpg" alt="Lugar Ejecutivo 2">
+        <h3>Lugar ejecutivo 2</h3>
+      </article>
+      <article class="person">
+        <img src="assets/img/ejecutivo3.jpg" alt="Lugar Ejecutivo 3">
+        <h3>Lugar ejecutivo 3</h3>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <small>© Derechos Reservados...</small>
+  </footer>
+  <script type="text/javascript">
+        window.addEventListener('scroll', function(){
+            const header = document.querySelector('header');
+            header.classList.toggle("sticky",window.scrollY > 0);
+        });
+
+        function toggleMenu(){
+            const menuToggle = document.querySelector('.menuToggle');
+            const navigation = document.querySelector('.rigth');
+            menuToggle.classList.toggle('active');
+            navigation.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
