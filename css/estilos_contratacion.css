@@ -8,12 +8,8 @@
   font-family: 'Cabin', sans-serif;
 }
 
-img{
-  width: 10px;
-}
-
 body{
-  background-color: #16161a;
+  background-color: #242629;
 }
 
 header{
@@ -86,113 +82,57 @@ header nav .left{
   width: 100%;
 }
 
-main .content-main{
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fffffe;
-  background: linear-gradient(#16161acc, #16161acc), url(../assets/img/hero.avif) ;
-  background-size: cover;
-}
-
-.content-main .text h1{
-  font-size: 5em;
-}
-
-.content-main .text p{
-  font-size: 1em;
-}
-
-
 main{
-  background-color: #242629;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+}
+
+main .form{
+  background: #16161a;
+  width: 550px;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+main .form h2{
   color: #fffffe;
 }
 
-main section h2{
-  font-size: 3em;
-  text-align: center;
-  font-weight: 400;
-}
-
-main section hr{
-  width: 80%;
-  margin-top: 10px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.dj{
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-.content-dj{
-  margin-top: 30px;
+main .form .input-box{
+  position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.person{
-  margin: 10px 10px;
-  border-radius: 10px;
-  width: 350px;
-  height: 440px;
-  background: #16161a;
-}
-
-.person img{
   width: 100%;
-  object-fit: cover;
-  height: 80%;
-  border-radius: 10px;
-}
-
-.person h3{
-  margin-top: 20px;
-  text-align: center;
-}
-
-.places-economics, .places-ejecutivs{
-  background-color: #16161a;
-  padding-top: 30px;
-}
-
-.places{
-  width: 100%;
-  margin-top: 30px;
-  display: flex;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
+  color: #fffffe;
+  margin-top: 15px;
 }
 
-.place{
-  margin-top: 10px;
-  background: #242629;
-  width: 80%;
-  height: 320px;
-  padding: 10px;
-  border-radius: 10px;
+.input-box label{
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  font-size: 1.2em;
 }
 
-.place img{
-  width: 100%;
-  height: 90%;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.place h3{
-  margin-top: 10px;
+.input-box input{
+  background: #16161a;
+  outline: none;
+  border: none;
+  border-bottom: #7f5af0 solid thin;
+/*   background: #94a1b2; */
+  padding: 30px 10px 10px;
+  color: #fffffe;
+/*   border-radius: 10px; */
+  font-size: 1.2em;
 }
 
 footer{
+  width: 100%;
   margin-top: 30px;
   display: flex;
   justify-content: center;
