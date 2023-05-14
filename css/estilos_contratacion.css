@@ -83,6 +83,7 @@ header nav .left{
 }
 
 main{
+  padding-top: 70px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -119,7 +120,8 @@ main .form .input-box{
   font-size: 1.2em;
 }
 
-.input-box input{
+.input-box input,
+.input-box select{
   background: #16161a;
   outline: none;
   border: none;
@@ -129,6 +131,32 @@ main .form .input-box{
   color: #fffffe;
 /*   border-radius: 10px; */
   font-size: 1.2em;
+}
+
+.buttons{
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.buttons input{
+  color: #fffffe;
+  font-size: 1.2em;
+  background: #7f5af0;
+  border: none;
+  width: 200px;
+  padding: 10px;
+  margin: 5px;
+  transition: 0.5s; 
+  border-radius: 10px;
+}
+
+.buttons input:hover{
+  width: 210px;
+  letter-spacing: 2px;
 }
 
 footer{

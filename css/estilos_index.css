@@ -82,27 +82,6 @@ header nav .left{
   width: 100%;
 }
 
-main .content-main{
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fffffe;
-  background: linear-gradient(#16161acc, #16161acc), url(../assets/img/hero.avif) ;
-  background-size: cover;
-}
-
-.content-main .text h1{
-  font-size: 5em;
-}
-
-.content-main .text p{
-  font-size: 1em;
-}
-
-
 main{
   background-color: #242629;
   color: #fffffe;
@@ -119,6 +98,27 @@ main section hr{
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
+}
+
+main .content-main{
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fffffe;
+  /* color: #2819ff; */
+  background: linear-gradient(#16161a50, #16161a50), url(../assets/img/hero.jpg) ;
+  background-size: cover;
+}
+
+.content-main .text h1{
+  font-size: 5em;
+}
+
+.content-main .text p{
+  font-size: 1em;
 }
 
 .dj{
