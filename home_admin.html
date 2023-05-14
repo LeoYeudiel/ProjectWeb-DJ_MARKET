@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DJ Market - Home Admin</title>
+  <link rel="icon" href="assets/img/icon.png">
+  <meta name="theme-color" content="#16161a">
+  <link rel="stylesheet" href="css/estilos_home_admin.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="left">
+        <img src="assets/img/icon.png" alt="Logo" class="logo">
+        <strong>DJ MARKET</strong>
+      </div>
+      <div class="menuToggle" onclick="toggleMenu()"></div>
+      <div class="rigth">
+        <li><a href="index.html" onclick="toggleMenu()">Inicio</a></li>
+        <li><a href="contratacion.html" onclick="toggleMenu()">Contratación</a></li>
+        <li><a href="comprobante.html" onclick="toggleMenu()">Comprobante</a></li>
+        <li><a href="admin.html" onclick="toggleMenu()">Admin</a></li>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="header">
+      <h2>Hola Admin</h2>
+      <hr>
+    </section>
+    <section class="table">
+      <table>
+        <thead>
+          <th>FOLIO</th>
+          <th>Nombre</th>
+          <th>Horario</th>
+          <th></th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>RFC 1</td>
+            <td>Lettu</td>
+            <td>08:00 - 12:00</td>
+            <td><button><ion-icon name="trash-outline"></ion-icon></button><button><ion-icon name="create-outline"></ion-icon></button></td>
+          </tr>
+          <tr>
+            <td>RFC 2</td>
+            <td>Jess</td>
+            <td>08:00 - 12:00</td>
+            <td><button><ion-icon name="trash-outline"></ion-icon></button><button><ion-icon name="create-outline"></ion-icon></button></td>
+          </tr>
+          <tr>
+            <td>RFC 3</td>
+            <td>Serch</td>
+            <td>08:00 - 12:00</td>
+            <td><button><ion-icon name="trash-outline"></ion-icon></button><button><ion-icon name="create-outline"></ion-icon></button></td>
+          </tr>
+          <tr>
+            <td>RFC 4</td>
+            <td>Leo</td>
+            <td>08:00 - 12:00</td>
+            <td><button><ion-icon name="trash-outline"></ion-icon></button><button><ion-icon name="create-outline"></ion-icon></button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <small>© Derechos Reservados...</small>
+  </footer>
+  <script type="text/javascript">
+        window.addEventListener('scroll', function(){
+            const header = document.querySelector('header');
+            header.classList.toggle("sticky",window.scrollY > 0);
+        });
+
+        function toggleMenu(){
+            const menuToggle = document.querySelector('.menuToggle');
+            const navigation = document.querySelector('.rigth');
+            menuToggle.classList.toggle('active');
+            navigation.classList.toggle('active');
+        }
+    </script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

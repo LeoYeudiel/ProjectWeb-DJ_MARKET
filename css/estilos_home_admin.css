@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Cabin', sans-serif;
+}
+
+body{
+  background-color: #242629;
+}
+
+header{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  padding: 40px 100px;
+  transition: 0.5s;
+}
+
+header.sticky{
+    background: #16161a;
+    padding: 10px 100px;
+    box-shadow: 0 5px 20px #0000000d;
+}
+
+header nav{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fffffe;
+}
+
+header nav .left{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left img{
+  margin-right: 30px;
+  width: 48px;
+}
+
+.left strong{
+  font-size: 1.5em;
+  letter-spacing: 3px;
+}
+
+.rigth li{
+  display: inline;
+  list-style: none;
+  margin: 0 20px;
+  position: relative;
+}
+
+.rigth li a{
+  text-decoration: none;
+  color: #fffffe;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 1.2em;
+}
+
+.rigth li::before{
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  height: 3px;
+  background: #fffffe;
+  transition: 0.5s ease;
+  width: 0;
+}
+
+.rigth li:hover::before{
+  width: 100%;
+}
+
+main{
+  width: 80%;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 100vh;
+}
+
+main .header{
+  margin-top: 30px;
+  color: #fffffe;
+  font-size: 2em;
+}
+
+main .table{
+  margin-top: 30px;
+  color: #fffffe;
+  width: 100%;
+}
+
+main .table table{
+  width: 100%;
+}
+
+table th,
+table td{
+  padding: 10px;
+}
+
+main .table table thead{
+  width: 100%;
+  background: #010101;
+}
+
+main .table tr:nth-child(2n){
+  background: #16161a;
+}
+
+main table tr button{
+  padding: 10px;
+  border: none;
+  margin: 5px 10px;
+}
+
+main table tr button:nth-child(1){
+  background: #7f5af0;
+  padding: 10px;
+}
+
+main table tr button:nth-child(2){
+  background: #2cb67d;
+  padding: 10px;
+}
+
+ion-icon{
+  filter: invert(1);
+}
+
+footer{
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 30px;
+  background: #7f5af0;
+  color: #fffffe;
+}
+
+@media (max-width: 991px){
+  header,
+  header.sticky{
+      padding: 10px 20px;
+  }
+
+  header .rigth{
+    width: 100%;
+    height: calc(100% - 68px);
+    position: fixed;
+    top: 68px;
+    left: -100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #16161a;
+    transition: 0.5s;
+  }
+
+  header .rigth.active{
+      width: 100%;
+      height: calc(100% - 68px);
+      position: fixed;
+      top: 68px;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: #16161a;
+      transition: 0.5s;
+  }
+  header .rigth li{
+      margin-top: 30px;
+  }
+  header .rigth li a{
+      color: #fffffe;
+      font-size: 1.6em;
+  }
+
+  .menuToggle{
+      position: relative;
+      width: 40px;
+      height: 40px;
+      background: url(../assets/img/menu.png);
+      background-size: 30px;
+      background-repeat: no-repeat;
+      background-position: center;
+      cursor: pointer;
+  }
+
+  .menuToggle.active{
+      background: url(../assets/img/close.png);
+      background-size: 30px;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+}
