@@ -83,7 +83,7 @@ header nav .left{
 }
 
 main{
-  padding-top: 70px;
+  padding-top: 100px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -142,7 +142,8 @@ main .form .input-box{
   flex-wrap: wrap;
 }
 
-.buttons input{
+.buttons input,
+.buttons button{
   color: #fffffe;
   font-size: 1.2em;
   background: #7f5af0;
@@ -154,10 +155,32 @@ main .form .input-box{
   border-radius: 10px;
 }
 
-.buttons input:hover{
+.buttons input:hover,
+.buttons button:hover{
   width: 210px;
   letter-spacing: 2px;
 }
+
+#modal{
+  background: #16161a;
+  color: #fffffe;
+}
+
+
+#modal .modal-header button{
+  filter: invert(1);
+}
+
+#modal .modal-footer button:nth-child(1){
+  background: #7f5af0;
+  border: none;
+}
+
+#modal .modal-footer button:nth-child(2){
+  background: #2cb67d;
+  border: none;
+}
+
 
 footer{
   width: 100%;
