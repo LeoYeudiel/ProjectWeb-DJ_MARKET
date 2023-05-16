@@ -92,21 +92,19 @@
         <label for="rfc">RFC</label>
         <input type="text" id="rfc" name="rfc" class="input">
       </div>
-      <div class="input-box">
-        <label for="evento">Tipo de evento</label>
-        <select name="evento" id="evento" class="input">
-          <option value="0">Seleccione un tipo de evento</option>
-          <option value="bautizo">Bautizo</option>
-          <option value="primeraComunion">Primera Comunión</option>
-          <option value="quince">XV Años</option>
-          <option value="boda">Boda</option>
-          <option value="birthday">Cumpleaños</option>
-          <option value="otro">Otro</option>
-        </select>
-      </div>
-      <div class="input-box">
-        <label for="otro_evento">Otro tipo de evento</label>
-        <input type="text" id="otro_evento" name="otro_evento" class="input">
+      <div id="input-evento">
+        <div class="input-box">
+          <label for="evento">Tipo de evento</label>
+          <select name="evento" id="evento" class="input" onchange="otherEvent()">
+            <option value="0">Seleccione un tipo de evento</option>
+            <option value="bautizo">Bautizo</option>
+            <option value="primeraComunion">Primera Comunión</option>
+            <option value="quince">XV Años</option>
+            <option value="boda">Boda</option>
+            <option value="birthday">Cumpleaños</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
       </div>
       <div class="input-box">
         <label for="people">Numero de personas</label>
@@ -141,7 +139,8 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            Hola <span id="name-content"></span>, verifica que los datos de tu contratación/reservación que ingresaste sean correctos: <br><br>
+            Hola <span id="name-content"></span>, verifica que los datos de tu contratación/reservación que ingresaste sean correctos:
+            <h3>Datos de contacto.</h3>
             <strong>Nombre:</strong><span id="name-content2"></span>. <br>
             <strong>Apellido Materno:</strong><span id="app-content"></span>. <br>
             <strong>Apellido Paterno:</strong><span id="apm-content"></span>. <br>
@@ -151,9 +150,9 @@
             <strong>Colonia:</strong><span id="colonia-content"></span>. <br>
             <strong>Entidad Federativa:</strong><span id="entidad-content"></span>. <br>
             <strong>Alcaldía:</strong><span id="alcaldia-content"></span>. <br>
+            <h3>Datos de evento.</h3>
             <strong>RFC:</strong><span id="rfc-content"></span>. <br>
             <strong>Tipo de evento:</strong><span id="type_evento-content"></span>. <br>
-            <strong>Otro tipo de evento:</strong><span id="other_evento-content"></span>. <br>
             <strong>Numero de personas:</strong><span id="people-content"></span>. <br>
             <strong>DJ:</strong><span id="dj-content"></span>. <br>
             <strong>Salon:</strong><span id="salon-content"></span>. <br>
