@@ -99,7 +99,7 @@ main .header{
 main .table{
   margin-top: 30px;
   color: #fffffe;
-  width: 100%;
+  overflow-x: auto;
 }
 
 main .table table{
