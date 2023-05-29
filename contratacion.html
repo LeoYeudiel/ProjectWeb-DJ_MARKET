@@ -27,145 +27,212 @@
     </nav>
   </header>
   <main id="principal">
-    <section class="form contacto">
-      <h2>Contacto</h2>
       <form action="" id="formulario1">
-        <div class="input-box" id="nom_group">
-          <label for="name">Nombre</label>
-          <input type="text" id="name" name="name" class="input">
-        </div>
-        <div class="input-box">
-          <label for="app">Apellido Paterno</label>
-          <input type="text" id="app" name="app" class="input">
-        </div>
-        <div class="input-box">
-          <label for="apm">Apellido Materno</label>
-          <input type="text" id="apm" name="apm" class="input">
-        </div>
-        <div class="input-box" id="tel_group">
-          <label for="tel">Telefono o Celular</label>
-          <input type="tel" id="tel" name="tel" class="input">
-          <p>
-        </div>
-        <div class="input-box">
-          <label for="email">Correo Electronico</label>
-          <input type="email" id="email" name="email" class="input">
-        </div>
-        <div class="input-box">
-          <label for="calle">Calle y Numero</label>
-          <input type="text" id="calle" name="calle" class="input">
-        </div>
-        <div class="input-box">
-          <label for="colonia">Colonia</label>
-          <input type="text" id="colonia" name="colonia" class="input">
-        </div>
-        <div class="input-box">
-          <label for="entidad">Entidad Federativa</label>
-          <input type="text" id="entidad" name="entidad" class="input">
-        </div>
-        <div class="input-box">
-          <label for="alcaldia">Alcaldía</label>
-          <select name="alcaldia" id="alcaldia" class="input">
-            <option value="0">Seleccione una alcadia</option>
-            <option value="azcapotzalco">Azcapotzalco</option>
-            <option value="coyoacan">Coyoacán</option>
-            <option value="cuajimalpa">Cuajimalpa de Morelos</option>
-            <option value="gustavo">Gustavo A. Madero</option>
-            <option value="iztacalco">Iztacalco</option>
-            <option value="iztapalapa">Iztapalapa</option>
-            <option value="magdalena">La Magdalena Contreras</option>
-            <option value="milpa">Milpa Alta</option>
-            <option value="obregon">Álvaro Obregón</option>
-            <option value="tlahuac">Tláhuac</option>
-            <option value="tlalpan">Tlalpan</option>
-            <option value="xochimilco">Xochimilco</option>
-            <option value="benito">Benito Juárez</option>
-            <option value="cuauhtémoc">Cuauhtémoc</option>
-            <option value="hidalgo">Miguel Hidalgo</option>
-            <option value="venustiano">Venustiano Carranza</option>
-          </select>
-        </div>
+          <section class="form contacto">
+              <h2>Contacto</h2>
+              <div class="input-box" id="name_group">
+                  <label for="name">Nombre</label>
+                  <input type="text" id="name" name="name" class="input">
+              </div>
+              <div class="input-box" id="app_group">
+                  <label for="app">Apellido Paterno</label>
+                  <input type="text" id="app" name="app" class="input">
+              </div>
+              <div class="input-box" id="apm_group">
+                  <label for="apm">Apellido Materno</label>
+                  <input type="text" id="apm" name="apm" class="input">
+              </div>
+              <div class="input-box" id="tel_group">
+                  <label for="tel">Telefono o Celular</label>
+                  <input type="tel" id="tel" name="tel" class="input">
+                  <p>
+              </div>
+              <div class="input-box" id="email_group">
+                  <label for="email">Correo Electronico</label>
+                  <input type="email" id="email" name="email" class="input">
+              </div>
+              <div class="input-box" id="calleNum_group">
+                  <label for="calle">Calle y Numero</label>
+                  <input type="text" id="calle" name="calle" class="input">
+              </div>
+              <div class="input-box" id="colonia_group">
+                  <label for="colonia">Colonia</label>
+                  <input type="text" id="colonia" name="colonia" class="input">
+              </div>
+              <div class="input-box">
+                  <label for="entidad">Entidad Federativa</label>
+                  <select name="entidad" id="entidad" class="input">
+                      <option value="0">Seleccione una Entidad Federativa</option>
+                      <option value="aguascalientes">Aguascalientes</option>
+                      <option value="bajacaliforniaN">Baja California</option>
+                      <option value="bajacaliforniaS">Baja California Sur</option>
+                      <option value="campeche">Campeche</option>
+                      <option value="coahuila">Coahuila de Zaragoza</option>
+                      <option value="colima">Colima</option>
+                      <option value="chiapas">Chiapas</option>
+                      <option value="chihuahua">Chihuahua</option>
+                      <option value="cdmx">Ciudad de México</option>
+                      <option value="durango">Durango</option>
+                      <option value="guanajuato">Guanajuato</option>
+                      <option value="guerrero">Guerrero</option>
+                      <option value="hidalgo">Hidalgo</option>
+                      <option value="jalisco">Jalisco</option>
+                      <option value="mexico">México</option>
+                      <option value="michoacán de Ocampo">Michoacán de Ocampo</option>
+                      <option value="morelos">Morelos</option>
+                      <option value="nayarit">Nayarit</option>
+                      <option value="nuevoleon">Nuevo León</option>
+                      <option value="oaxaca">Oaxaca</option>
+                      <option value="puebla">Puebla</option>
+                      <option value="queretaro">Querétaro</option>
+                      <option value="quintanaroo">Quintana Roo</option>
+                      <option value="sanluispotosi">San Luis Potosí</option>
+                      <option value="sinaloa">Sinaloa</option>
+                      <option value="sonora">Sonora</option>
+                      <option value="tabasco">Tabasco</option>
+                      <option value="tamaulipas">Tamaulipas</option>
+                      <option value="tlaxcala">Tlaxcala</option>
+                      <option value="veracruz">Veracruz de Ignacio de la Llave</option>
+                      <option value="yucatan">Yucatán</option>
+                      <option value="zacatecas">Zacatecas</option>
+                  </select>
+              </div>
+              <div class="input-box">
+                  <label for="alcaldia">Alcaldía</label>
+                  <select name="alcaldia" id="alcaldia" class="input">
+                      <option value="0">Seleccione una alcadia</option>
+                      <option value="azcapotzalco">Azcapotzalco</option>
+                      <option value="coyoacan">Coyoacán</option>
+                      <option value="cuajimalpa">Cuajimalpa de Morelos</option>
+                      <option value="gustavo">Gustavo A. Madero</option>
+                      <option value="iztacalco">Iztacalco</option>
+                      <option value="iztapalapa">Iztapalapa</option>
+                      <option value="magdalena">La Magdalena Contreras</option>
+                      <option value="milpa">Milpa Alta</option>
+                      <option value="obregon">Álvaro Obregón</option>
+                      <option value="tlahuac">Tláhuac</option>
+                      <option value="tlalpan">Tlalpan</option>
+                      <option value="xochimilco">Xochimilco</option>
+                      <option value="benito">Benito Juárez</option>
+                      <option value="cuauhtémoc">Cuauhtémoc</option>
+                      <option value="hidalgo">Miguel Hidalgo</option>
+                      <option value="venustiano">Venustiano Carranza</option>
+                  </select>
+              </div>
+              <div class="input-box" id="cp_group">
+                  <label for="cp">Codigo Postal</label>
+                  <input type="number" id="cp" name="cp" class="input">
+              </div>
+          </section>
       </form>
-    </section>
-    <section class="form evento">
-      <h2>Evento</h2>
-      <div class="input-box">
-        <label for="rfc">CURP</label>
-        <input type="text" id="rfc" name="rfc" class="input">
-      </div>
-      <div id="input-evento">
-        <div class="input-box">
-          <label for="evento">Tipo de evento</label>
-          <select name="evento" id="evento" class="input" onchange="otherEvent()">
-            <option value="0">Seleccione un tipo de evento</option>
-            <option value="bautizo">Bautizo</option>
-            <option value="primeraComunion">Primera Comunión</option>
-            <option value="quince">XV Años</option>
-            <option value="boda">Boda</option>
-            <option value="birthday">Cumpleaños</option>
-            <option value="otro">Otro</option>
-          </select>
-        </div>
-      </div>
-      <div class="input-box">
-        <label for="people">Numero de personas</label>
-        <input type="number" id="people" name="people" class="input">
-      </div>
-      <div class="input-box">
-        <label for="dj">DJ</label>
-        <select name="dj" id="dj" class="input">
-          <option value="0">Seleccione un DJ para su evento</option>
-        </select>
-      </div>
-      <div class="input-box">
-        <label for="salon">Salón</label>
-        <select name="salon" id="salon" class="input">
-          <option value="0">Seleccione un Salon para su evento</option>
-        </select>
-      </div>
-      <div class="input-box">
-        <label for="cost">Costo</label>
-        <input type="number" id="cost" name="cost">
-      </div>
-    </section>
-    <div class="buttons">
-      <input type="reset">
-      <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="confirmar()">Registrar</button>
-    </div>
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content" id="modal">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirmación de contratación</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <section class="form evento">
+          <h2>Evento</h2>
+          <div class="input-box">
+              <label for="rfc">CURP</label>
+              <input type="text" id="rfc" name="rfc" class="input">
           </div>
-          <div class="modal-body">
-            Hola <span id="name-content"></span>, verifica que los datos de tu contratación/reservación que ingresaste sean correctos:
-            <h3>Datos de contacto.</h3>
-            <strong>Nombre:</strong><span id="name-content2"></span>. <br>
-            <strong>Apellido Materno:</strong><span id="app-content"></span>. <br>
-            <strong>Apellido Paterno:</strong><span id="apm-content"></span>. <br>
-            <strong>Telefono o Celular:</strong><span id="tel-content"></span>. <br>
-            <strong>Correo Electronico:</strong><span id="email-content"></span>. <br>
-            <strong>Calle y Numero:</strong><span id="calle-content"></span>. <br>
-            <strong>Colonia:</strong><span id="colonia-content"></span>. <br>
-            <strong>Entidad Federativa:</strong><span id="entidad-content"></span>. <br>
-            <strong>Alcaldía:</strong><span id="alcaldia-content"></span>. <br>
-            <h3>Datos de evento.</h3>
-            <strong>RFC:</strong><span id="rfc-content"></span>. <br>
-            <strong>Tipo de evento:</strong><span id="type_evento-content"></span>. <br>
-            <strong>Numero de personas:</strong><span id="people-content"></span>. <br>
-            <strong>DJ:</strong><span id="dj-content"></span>. <br>
-            <strong>Salon:</strong><span id="salon-content"></span>. <br>
-            <strong>Costo:</strong><span id="costo-content"></span>. <br>
+          <div id="input-evento">
+              <div class="input-box">
+                  <label for="evento">Tipo de evento</label>
+                  <select name="evento" id="evento" class="input" onchange="otherEvent()">
+                      <option value="0">Seleccione un tipo de evento</option>
+                      <option value="bautizo">Bautizo</option>
+                      <option value="primeraComunion">Primera Comunión</option>
+                      <option value="quince">XV Años</option>
+                      <option value="boda">Boda</option>
+                      <option value="birthday">Cumpleaños</option>
+                      <option value="otro">Otro</option>
+                  </select>
+              </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Modificar</button>
-            <button type="button" class="btn btn-primary">Aceptar</button>
+          <div class="input-box">
+              <label for="people">Numero de personas</label>
+              <input type="number" id="people" name="people" class="input" min="75" max="200" value="0">
           </div>
-        </div>
+          <div class="input-box">
+              <label for="dj">DJ</label>
+              <select name="dj" id="dj" class="input">
+                  <option value="0">Seleccione un DJ para su evento</option>
+                  <option value="op1">Martin Garrix</option>
+                  <option value="op2">David Guetta</option>
+                  <option value="op3">Dimitri Vegas & Like Mike</option>
+                  <option value="op4">Alok</option>
+                  <option value="op5">Marshmello</option>
+                  <option value="op6">DJ Snake</option>
+                  <option value="op7">Skrillex</option>
+                  <option value="op8">Avicci</option>
+                  <option value="op9">Aoki</option>
+                  <option value="op10">Afrojack</option>
+                  <option value="op11">Alan Walker"</option>
+                  <option value="op12">Alesso</option>
+              </select>
+          </div>
+          <div class="input-box">
+              <label for="salon">Salón</label>
+              <select name="salon" id="salon" class="input">
+                  <option value="0">Seleccione un Salon para su evento</option>
+                  <option value="lugar1">Lugar economico 1</option>
+                  <option value="lugar1">Lugar economico 2</option>
+                  <option value="lugar1">Lugar economico 3</option>
+                  <option value="lugar1">Lugar ejecutivo 1</option>
+                  <option value="lugar1">Lugar ejecutivo 2</option>
+                  <option value="lugar1">Lugar ejecutivo 3</option>
+              </select>
+          </div>
+          <div class="input-box">
+              <label for="cost">Costo</label>
+              <input type="number" id="cost" name="cost">
+          </div>
+          <div class="input-box">
+              <label for="fecha">Fecha:</label>
+              <input type="date" id="fecha" name="fecha">
+          </div>
+
+          <div class="input-box">
+              <label for="hora">Hora:</label>
+              <input type="time" id="hora" name="hora">
+          </div>
+
+      </section>
+          <div class="buttons">
+              <input type="reset">
+              <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="confirmar()">Registrar</button>
+          </div>
+      
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content" id="modal">
+                  <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirmación de contratación</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      Hola <span id="name-content"></span>, verifica que los datos de tu contratación/reservación que ingresaste sean correctos:
+                      <h3>Datos de contacto.</h3>
+                      <strong>Nombre:</strong><span id="name-content2"></span>. <br>
+                      <strong>Apellido Materno:</strong><span id="app-content"></span>. <br>
+                      <strong>Apellido Paterno:</strong><span id="apm-content"></span>. <br>
+                      <strong>Telefono o Celular:</strong><span id="tel-content"></span>. <br>
+                      <strong>Correo Electronico:</strong><span id="email-content"></span>. <br>
+                      <strong>Calle y Numero:</strong><span id="calle-content"></span>. <br>
+                      <strong>Colonia:</strong><span id="colonia-content"></span>. <br>
+                      <strong>Entidad Federativa:</strong><span id="entidad-content"></span>. <br>
+                      <strong>Alcaldía:</strong><span id="alcaldia-content"></span>. <br>
+                      <h3>Datos de evento.</h3>
+                      <strong>RFC:</strong><span id="rfc-content"></span>. <br>
+                      <strong>Tipo de evento:</strong><span id="type_evento-content"></span>. <br>
+                      <strong>Numero de personas:</strong><span id="people-content"></span>. <br>
+                      <strong>DJ:</strong><span id="dj-content"></span>. <br>
+                      <strong>Salon:</strong><span id="salon-content"></span>. <br>
+                      <strong>Costo:</strong><span id="costo-content"></span>. <br>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Modificar</button>
+                      <button type="button" class="btn btn-primary">Aceptar</button>
+                  </div>
+              </div>
+          </div>
       </div>
-    </div>
   </main>
   <footer>
     <small>© Derechos Reservados...</small>
