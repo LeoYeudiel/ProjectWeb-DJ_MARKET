@@ -162,13 +162,71 @@ main .form .input-box{
 
 footer{
   width: 100%;
-  margin-top: 30px;
+  margin-top: 50px;
   display: flex;
-  justify-content: center;
-  align-content: center;
-  height: 30px;
-  background: #7f5af0;
+  background: #a187f1;
   color: #fffffe;
+  position: relative;
+}
+
+footer .content-footer{
+  width: 80%;
+  height: 100%;
+  padding: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content-footer .title h2{
+  font-size: 3em;
+}
+
+.content-footer .contact{
+  margin-top: 30px;
+}
+
+.contact,
+.creators{
+  font-size: 1.5em;
+  margin-top: 30px;
+}
+
+.contact hr,
+.creators hr{
+  width: 80%;
+}
+
+.contact li,
+.creators li{
+  list-style: none;
+  display: flex;
+  align-content: center;
+  margin-top: 10px;
+  transition: 0.5s;
+}
+
+.contact li:hover,
+.creators li:hover{
+  font-size: 1.2em;
+}
+
+.contact a,
+.creators a{
+  text-decoration: none;
+  color: #fffffe;
+}
+
+.contact li a ion-icon,
+.creators li a ion-icon{
+  margin-right: 10px;
+}
+
+.footer-center{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 10px;
+  font-weight: 100;
 }
 
 @media (max-width: 991px){
@@ -228,5 +286,24 @@ footer{
       background-size: 30px;
       background-repeat: no-repeat;
       background-position: center;
+  }
+
+  .content-footer .title h2{
+    font-size: 1.5em;
+  }
+
+  .contact,
+  .creators{
+  font-size: 1em;
+  margin-top: 30px;
+  } 
+
+  .footer-center{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 10px;
+    font-size: .8em;
+    font-weight: 100;
   }
 }
