@@ -96,6 +96,18 @@ main .header{
   font-size: 2em;
 }
 
+main .header a{
+  margin-top: 20px;
+  display: block;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  color: #fffffe;
+  background: #2cb67d;
+  border-radius: 10px;
+}
+
 main .table{
   margin-top: 30px;
   color: #fffffe;
