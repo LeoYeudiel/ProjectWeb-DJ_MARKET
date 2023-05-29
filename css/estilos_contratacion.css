@@ -131,6 +131,7 @@ main .form .input-box{
   color: #fffffe;
 /*   border-radius: 10px; */
   font-size: 1.2em;
+  width: 100%;
 }
 
 .buttons{
@@ -165,7 +166,6 @@ main .form .input-box{
   background: #16161a;
   color: #fffffe;
 }
-
 
 #modal .modal-header button{
   filter: invert(1);
