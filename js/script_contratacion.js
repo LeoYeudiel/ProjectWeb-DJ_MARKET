@@ -42,3 +42,45 @@ const confirmar = () => {
   document.getElementById('salon-content').textContent = document.getElementById('salon').options[document.getElementById('salon').selectedIndex].textContent
   document.getElementById('costo-content').textContent = document.getElementById('cost').value
 }
+
+const formulario1 = document.getElementById('formulario1');
+const inputs = document.querySelectorAll('#formulario1 input');
+
+const expresiones_regulares =
+{
+    nom: /^[a-zA-ZÀ-ÿ\s]+$/,
+    tel: /^\d{10}$/
+}
+
+const validacion = (e) => {
+    switch (e.target.name) {
+        case 'tel':
+            if (expresiones_regulares.tel.test(e.target.value)) {
+                document.getElementById('tel_group').style.color = 'white';
+}
+            else {
+                document.getElementById('tel_group').style.color = 'red';
+                console.log('Se ha introducido un telefono invalido. El valor es: ' + e.target.value);
+            }
+            break;
+
+        case 'name':
+            if (expresiones_regulares.nom.test(e.target.value)) {
+                document.getElementById('nom_group').style.color = 'white';
+            }
+            else {
+                document.getElementById('nom_group').style.color = 'red';
+                console.log('Se ha introducido un nombre invalido. El valor es: ' + e.target.value);
+            }
+            break;
+    }
+}
+
+inputs.forEach((input) => {
+    input.addEventListener('keyup', validacion);
+    input.addEventListener('blur', validacion);
+});
+
+formulario1.addEventListener('submit', (e) => {
+    e.preventDefault();
+});
