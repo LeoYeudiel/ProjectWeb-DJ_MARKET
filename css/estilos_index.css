@@ -265,12 +265,12 @@ main .content-main{
 }
 
 footer{
-  margin-top: 30px;
+  margin-top: 50px;
   display: flex;
   justify-content: center;
   align-content: center;
-  height: 30px;
-  background: #7f5af0;
+  height: 150px;
+  background: #a187f1;
   color: #fffffe;
 }
 
