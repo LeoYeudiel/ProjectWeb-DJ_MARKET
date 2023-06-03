@@ -9,10 +9,10 @@ const expresion_regular =
 }
 
 const validacion = (e) => {
+    let valor = e.target.name
 
-        console.log(e);
-    if(e){
-    switch (e.target.name) {
+    console.log(valor);
+    switch (valor) {
         case 'folio':
             if (expresion_regular.folio.test(e.target.value)) {
                 document.getElementById('folio-group').style.color = 'white';
@@ -23,7 +23,7 @@ const validacion = (e) => {
             }
             break;
     }
-}
+
 }
 
 inputs.forEach((input) => {

@@ -26,8 +26,9 @@
       </div>
     </nav>
   </header>
+  <form action="" id="formulario1">
   <main id="principal">
-      <form action="" id="formulario1">
+      
           <section class="form contacto">
               <h2>Contacto</h2>
               <div class="input-box" id="name_group">
@@ -124,12 +125,12 @@
                   <input type="number" id="cp" name="cp" class="input">
               </div>
           </section>
-      </form>
+      
       <section class="form evento">
           <h2>Evento</h2>
-          <div class="input-box">
-              <label for="rfc">CURP</label>
-              <input type="text" id="rfc" name="rfc" class="input">
+          <div class="input-box" id="curp_group">
+              <label for="curp">CURP</label>
+              <input type="text" id="curp" name="curp" class="input">
           </div>
           <div id="input-evento">
               <div class="input-box">
@@ -181,7 +182,7 @@
           </div>
           <div class="input-box">
               <label for="cost">Costo</label>
-              <input type="number" id="cost" name="cost">
+              <input type="number" id="cost" name="cost" readonly>
           </div>
           <div class="input-box">
               <label for="fecha">Fecha:</label>
@@ -219,12 +220,12 @@
                       <strong>Entidad Federativa:</strong><span id="entidad-content"></span>. <br>
                       <strong>Alcaldía:</strong><span id="alcaldia-content"></span>. <br>
                       <h3>Datos de evento.</h3>
-                      <strong>RFC:</strong><span id="rfc-content"></span>. <br>
                       <strong>Tipo de evento:</strong><span id="type_evento-content"></span>. <br>
                       <strong>Numero de personas:</strong><span id="people-content"></span>. <br>
                       <strong>DJ:</strong><span id="dj-content"></span>. <br>
                       <strong>Salon:</strong><span id="salon-content"></span>. <br>
                       <strong>Costo:</strong><span id="costo-content"></span>. <br>
+                      <strong>RFC:</strong><span id="rfc-content"></span>. <br>
                   </div>
                   <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Modificar</button>
@@ -233,9 +234,31 @@
               </div>
           </div>
       </div>
-  </main>
+    </main>
+</form>
   <footer>
-    <small>© Derechos Reservados...</small>
+    <div class="content-footer">
+      <div class="title">
+        <h2>Contáctanos:</h2>
+        <hr>
+      </div>
+      <div class="contact">
+        <h3>Nuestras Redes Sociales</h3>
+        <hr>
+        <li><a href="jessi.jrz02@gmail.com"><ion-icon name="mail-outline"></ion-icon>djmarket@gmail.com</a></li>
+        <li><a href="tel:+525564648725"><ion-icon name="call-outline"></ion-icon>+52 55 64 61 87 52</a></li>
+        <li><a href="https://instagram.com/dj_market_oficial?igshid=MzNlNGNkZWQ4Mg==" target="_blank"><ion-icon name="logo-instagram"></ion-icon>dj_market_oficial</a></li>
+      </div>
+      <div class="creators">
+        <h3>Desarrolladores</h3>
+        <hr>
+        <li><a href="https://github.com/serch-pa" target="_blank"><ion-icon name="logo-github"></ion-icon>serch-pa</a></li>
+        <li><a href="https://github.com/Lettu0309" target="_blank"><ion-icon name="logo-github"></ion-icon>Lettu0309</a></li>
+        <li><a href="https://github.com/Jess-Juarez" target="_blank"><ion-icon name="logo-github"></ion-icon>Jess-Juarez</a></li>
+        <li><a href="https://github.com/LeoYeudiel" target="_blank"><ion-icon name="logo-github"></ion-icon>LeoYeudiel</a></li>
+      </div>
+    </div>
+    <p class="footer-center">Derechos de autor &copy; 2023. Todos los derechos reservados.</p>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   <script type="text/javascript">
@@ -252,6 +275,8 @@
       }
   </script>
   <script src="js/script_contratacion.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
 <!-- https://www.programiz.com/c-programming/library-function/ctype.h/isspace -->
