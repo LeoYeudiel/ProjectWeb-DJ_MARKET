@@ -142,8 +142,56 @@ const validacion = (e) => {
                 console.log('Se ha introducido una calle y num invalido. El valor es: ' + e.target.value);
             }
             break;
+        /*case 'fecha':
+            if (e.target.value > Date.now()) {
+                document.getElementById('fecha_group').style.color = 'white';
+            }
+            else {
+                document.getElementById('fecha_group').style.color = 'red';
+            }
+            break;*/
     }
 }
+
+function validaFecha() {
+    var input_f = document.getElementById('fecha').value;
+    var fecha = new Date(input_f);
+    var actual = new Date();
+
+    if (fecha < actual) {
+        /*alert("La fecha no puede ser menor a la de hoy");*/
+        document.getElementById('fecha_group').style.color = 'red';
+    }
+    else
+    {
+        document.getElementById('fecha_group').style.color = 'white';
+    }
+}
+
+//const inputFecha = document.getElementById('#fecha');
+
+//inputFecha.onmouseover((i) => {
+//    var fecha = new Date();
+//    var anio = fecha.getFullYear();
+//    var _dia = fecha.getDate();
+//    var _mes = fecha.getMonth();
+//    var mes = "";
+//    var dia = "";
+//    _mes = _mes + 1;
+//    if (_mes < 10) {
+//        mes = "0" + _mes;
+//    }
+//    else {
+//        mes = _mes.toString;
+//    }
+//    if (_dia < 10) {
+//        dia = "0" + _dia;
+//    }
+//    else {
+//        dia = _dia.toString;
+//    }
+//    document.getElementById("fecha").min = anio + '-' + mes + '-' + dia;
+//});
 
 inputs.forEach((input) => {
     input.addEventListener('keyup', validacion);
