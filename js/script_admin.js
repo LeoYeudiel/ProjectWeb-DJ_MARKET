@@ -39,7 +39,7 @@ const validarForm = () => {
   }
 
   if (cont == 2) {
-    location.href = "../home_admin.html"
+    window.location.href = "../home_admin.html"
   } else {
     swal({
       title: "Campos Invalidos",

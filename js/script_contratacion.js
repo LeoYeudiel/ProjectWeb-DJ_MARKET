@@ -23,10 +23,20 @@ const confirmar = () => {
     const nPersonas = document.getElementById('people').value == "" ? "0" : document.getElementById('people').value;
     const nEntidad = document.getElementById('entidad').value;
     const nAlcaldia = document.getElementById('alcaldia').value ;
+    const nEvento = document.getElementById('evento').value
+    const nDj = document.getElementById('dj').value
+    const nSalon = document.getElementById('salon').value
+    const fecha = document.getElementById('fecha').value
+    const hora = document.getElementById('hora').value
 
     console.log('Numero de personas ingresadas' + nPersonas);
     console.log('Entidad Seleccionada' + nEntidad);
     console.log('Alcaldia Seleccionada' + nAlcaldia);
+    console.log('Evento seleccionado' + nEvento);
+    console.log('Dj seleccionado' + nDj);
+    console.log('Salon seleccionado' + nSalon);
+    console.log('Valor de la fecha' + fecha);
+    console.log('Valor de la hora' + hora);
     /*console.log(1);*/
 
     if (parseInt(nPersonas) < 70 || parseInt(nPersonas) > 200)
@@ -42,6 +52,26 @@ const confirmar = () => {
         alert('Seleccione una Alcaldia');
     }
 
+    if (nEvento == "0") {
+        alert('Seleccione un Evento');
+    }
+
+    if (nDj == "0") {
+        alert('Seleccione un DJ');
+    }
+
+    if (nSalon == "0") {
+        alert('Seleccione un Salon');
+    }
+
+    if(!fecha){
+        alert('Seleccione una Fecha para el evento')
+    }
+
+    if(!hora){
+        alert('Selecciona una Hora para el evento')
+    }
+    
     document.getElementById('name-content').textContent = document.getElementById('name').value
     document.getElementById('name-content2').textContent = document.getElementById('name').value
     document.getElementById('app-content').textContent = document.getElementById('app').value
@@ -52,7 +82,7 @@ const confirmar = () => {
     document.getElementById('colonia-content').textContent = document.getElementById('colonia').value
     document.getElementById('entidad-content').textContent = document.getElementById('entidad').value
     document.getElementById('alcaldia-content').textContent = document.getElementById('alcaldia').options[document.getElementById('alcaldia').selectedIndex].textContent
-    document.getElementById('rfc-content').textContent = document.getElementById('rfc').value
+    document.getElementById('rfc-content').textContent = document.getElementById('curp').value
 
   if (document.getElementById('evento').value == 'otro') {
     document.getElementById('type_evento-content').textContent = document.getElementById('otro_evento').value
@@ -76,10 +106,12 @@ const expresiones_regulares =
     cp: /^\d{5}$/,
     email: /^([\w.+]+@{1}[a-z]+([.]{1}[a-z]{1,3})(([.]{1}[a-z]{1,3})?))$/,
     calleNum: /^[a-zA-ZÀ-ÿ\s\d]+$/,
-    col: /^[a-zA-ZÀ-ÿ.\d\s]+$/
+    col: /^[a-zA-ZÀ-ÿ.\d\s]+$/, 
+    curp: /^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/
 }
 
 const validacion = (e) => {
+    console.log(e.target)
     switch (e.target.name) {
         case 'tel':
             if (expresiones_regulares.tel.test(e.target.value)) {
@@ -150,6 +182,14 @@ const validacion = (e) => {
                 document.getElementById('fecha_group').style.color = 'red';
             }
             break;*/
+        case 'curp':
+            if(expresiones_regulares.curp.test(e.target.value)){
+                document.getElementById('curp_group').style.color = 'white'
+            }else{
+                document.getElementById('curp_group').style.color = 'red';
+                console.log('Se ha introducido un CURP invalido. El valor es: ' + e.target.value);
+            }
+            break;
     }
 }
 
