@@ -2518,3 +2518,9 @@ insert into salon(id_salon,nombre_salon,costo,descripcion,ruta_imagen) values (3
 insert into salon(id_salon,nombre_salon,costo,descripcion,ruta_imagen) values (4,'Lugar ejecutivo 1','200000','Situado en una de las zonas más exclusivas, te brindará todo lo que necesitas en un marco sofisticado y lleno de elegancia justo como siempre lo habías soñado. Hotel exclusivo con hermosas vistas  , cual tiene una capacidad de hasta 200 personas, área de 50x50m&sup2.','ejecutivo1.jpg');
 insert into salon(id_salon,nombre_salon,costo,descripcion,ruta_imagen) values (5,'Lugar ejecutivo 2','250000','Para recuerdos memorables, un espacio de ensueño con variados servicios para recibir a grupos de invitados ya que cuenta con un salón de fiestas diseñado para la ocasión, los visitantes podrán degustar del mejor catering para tus eventos. Salón en zona residencial exclusiva, cual tiene una capacidad de hasta 200 personas, área de 50x60m&sup2.','ejecutivo2.jpg');
 insert into salon(id_salon,nombre_salon,costo,descripcion,ruta_imagen) values (6,'Lugar ejecutivo 3','300000','Para recuerdos memorables, un espacio de ensueño con variados servicios para recibir a grupos de invitados ya que cuenta con un salón de fiestas diseñado para la ocasión, los visitantes podrán degustar del mejor catering para tus eventos. Terraza en zona exclusiva, cual tiene una capacidad de hasta 300 personas, área de 70x80m&sup2.','ejecutivo3.jpg');
+
+
+insert into admin(id_admin, user, email, password) values (1, 'Cesar', 'cesar@gmail.com', 'Cesar12345');
+insert into admin(id_admin, user, email, password) values (2, 'Jessica', 'jessica@gmail.com', 'Jessica12345');
+insert into admin(id_admin, user, email, password) values (3, 'Leo', 'leo@gmail.com', 'Leo12345');
+insert into admin(id_admin, user, email, password) values (4, 'Sergio', 'sergio@gmail.com', 'Sergio12345');

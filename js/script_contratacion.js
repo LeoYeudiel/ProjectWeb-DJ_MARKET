@@ -19,7 +19,7 @@ const otherEvent = () => {
 
 //Introduce toda la información de los inputs dentro de un modal para confirmar contratación
 const confirmar = () => {
-
+    let msg = ``
     const nPersonas = document.getElementById('people').value == "" ? "0" : document.getElementById('people').value;
     const nEntidad = document.getElementById('entidad').value;
     const nAlcaldia = document.getElementById('alcaldia').value ;
@@ -41,36 +41,53 @@ const confirmar = () => {
 
     if (parseInt(nPersonas) < 70 || parseInt(nPersonas) > 200)
     {
-        alert('El numero de personas debe estar entre 70 y 200');
+        msg+=`El numero de personas debe estar entre 70 y 200. `
     }
 
     if (nEntidad == "0") {
-        alert('Seleccione una Entidad');
+        msg+=`Seleccione una Entidad. `
     }
 
     if (nAlcaldia == "0") {
-        alert('Seleccione una Alcaldia');
+        msg+=`Seleccione una Alcaldia. `
     }
 
     if (nEvento == "0") {
-        alert('Seleccione un Evento');
+        msg+=`Seleccione un Evento. `
     }
 
     if (nDj == "0") {
-        alert('Seleccione un DJ');
+        msg+=`Seleccione un DJ. `
     }
 
     if (nSalon == "0") {
-        alert('Seleccione un Salon');
+        msg+=`Seleccione un Salon. `
     }
 
     if(!fecha){
-        alert('Seleccione una Fecha para el evento')
+        msg+=`Seleccione una Fecha para el evento. `
     }
 
     if(!hora){
-        alert('Selecciona una Hora para el evento')
+        msg+=`Selecciona una Hora para el evento. `
     }
+
+  let modal = document.getElementById('staticBackdrop');
+  if (msg) {
+    swal({
+      title: "Campos Invalidos",
+      text: msg,
+      icon: "error",
+    });
+    modal.classList.remove('show')
+    modal.style.display = 'none'
+    document.body.classList.remove('modal-open')
+  } else {
+    modal.classList.add('show')
+    modal.style.display = 'block'
+    modal.style.background = "rgba(0,0,0,.4)"
+    document.body.classList.add('modal-open')
+
     
     document.getElementById('name-content').textContent = document.getElementById('name').value
     document.getElementById('name-content2').textContent = document.getElementById('name').value
@@ -84,16 +101,24 @@ const confirmar = () => {
     document.getElementById('alcaldia-content').textContent = document.getElementById('alcaldia').options[document.getElementById('alcaldia').selectedIndex].textContent
     document.getElementById('rfc-content').textContent = document.getElementById('curp').value
 
-  if (document.getElementById('evento').value == 'otro') {
-    document.getElementById('type_evento-content').textContent = document.getElementById('otro_evento').value
-  } else {
-    document.getElementById('type_evento-content').textContent = document.getElementById('evento').options[document.getElementById('evento').selectedIndex].textContent
-  }
+    if (document.getElementById('evento').value == 'otro') {
+      document.getElementById('type_evento-content').textContent = document.getElementById('otro_evento').value
+    } else {
+      document.getElementById('type_evento-content').textContent = document.getElementById('evento').options[document.getElementById('evento').selectedIndex].textContent
+    }
   
-  document.getElementById('people-content').textContent = document.getElementById('people').value
-  document.getElementById('dj-content').textContent = document.getElementById('dj').options[document.getElementById('dj').selectedIndex].textContent
-  document.getElementById('salon-content').textContent = document.getElementById('salon').options[document.getElementById('salon').selectedIndex].textContent
-  document.getElementById('costo-content').textContent = document.getElementById('cost').value
+    document.getElementById('people-content').textContent = document.getElementById('people').value
+    document.getElementById('dj-content').textContent = document.getElementById('dj').options[document.getElementById('dj').selectedIndex].textContent
+    document.getElementById('salon-content').textContent = document.getElementById('salon').options[document.getElementById('salon').selectedIndex].textContent
+    document.getElementById('costo-content').textContent = document.getElementById('cost').value
+  }
+}
+
+const cerrar = () => {
+  let modal = document.getElementById('staticBackdrop')
+  modal.classList.remove('show')
+  modal.style.display = 'none'
+  document.body.classList.remove('modal-open')
 }
 
 const formulario1 = document.getElementById('formulario1');
