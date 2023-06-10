@@ -1,20 +1,20 @@
 //Agrega el campo de otro evento
 const otherEvent = () => {
-  if (document.getElementById('evento').value == 'otro') {
-    document.getElementById('input-evento').insertAdjacentHTML(
-      "beforeend",
-      `
+    if (document.getElementById('evento').value == 'otro') {
+        document.getElementById('input-evento').insertAdjacentHTML(
+            "beforeend",
+            `
       <div class="input-box" id="input-otro-evento">
         <label for="otro_evento">Otro tipo de evento</label>
         <input type="text" id="otro_evento" name="otro_evento" class="input">
       </div>
       `
-    )
-  } else {
-    if (document.getElementById('input-otro-evento')) {
-      document.getElementById('input-otro-evento').remove()
+        )
+    } else {
+        if (document.getElementById('input-otro-evento')) {
+            document.getElementById('input-otro-evento').remove()
+        }
     }
-  }
 }
 
 //Introduce toda la información de los inputs dentro de un modal para confirmar contratación
@@ -22,15 +22,14 @@ const confirmar = () => {
 
     const nPersonas = document.getElementById('people').value == "" ? "0" : document.getElementById('people').value;
     const nEntidad = document.getElementById('entidad').value;
-    const nAlcaldia = document.getElementById('alcaldia').value ;
+    const nAlcaldia = document.getElementById('alcaldia').value;
 
     console.log('Numero de personas ingresadas' + nPersonas);
     console.log('Entidad Seleccionada' + nEntidad);
     console.log('Alcaldia Seleccionada' + nAlcaldia);
     /*console.log(1);*/
 
-    if (parseInt(nPersonas) < 70 || parseInt(nPersonas) > 200)
-    {
+    if (parseInt(nPersonas) < 70 || parseInt(nPersonas) > 200) {
         alert('El numero de personas debe estar entre 70 y 200');
     }
 
@@ -52,18 +51,18 @@ const confirmar = () => {
     document.getElementById('colonia-content').textContent = document.getElementById('colonia').value
     document.getElementById('entidad-content').textContent = document.getElementById('entidad').value
     document.getElementById('alcaldia-content').textContent = document.getElementById('alcaldia').options[document.getElementById('alcaldia').selectedIndex].textContent
-    document.getElementById('rfc-content').textContent = document.getElementById('rfc').value
+    document.getElementById('curp-content').textContent = document.getElementById('curp').value
 
-  if (document.getElementById('evento').value == 'otro') {
-    document.getElementById('type_evento-content').textContent = document.getElementById('otro_evento').value
-  } else {
-    document.getElementById('type_evento-content').textContent = document.getElementById('evento').options[document.getElementById('evento').selectedIndex].textContent
-  }
-  
-  document.getElementById('people-content').textContent = document.getElementById('people').value
-  document.getElementById('dj-content').textContent = document.getElementById('dj').options[document.getElementById('dj').selectedIndex].textContent
-  document.getElementById('salon-content').textContent = document.getElementById('salon').options[document.getElementById('salon').selectedIndex].textContent
-  document.getElementById('costo-content').textContent = document.getElementById('cost').value
+    if (document.getElementById('evento').value == 'otro') {
+        document.getElementById('type_evento-content').textContent = document.getElementById('otro_evento').value
+    } else {
+        document.getElementById('type_evento-content').textContent = document.getElementById('evento').options[document.getElementById('evento').selectedIndex].textContent
+    }
+
+    document.getElementById('people-content').textContent = document.getElementById('people').value
+    document.getElementById('dj-content').textContent = document.getElementById('dj').options[document.getElementById('dj').selectedIndex].textContent
+    document.getElementById('salon-content').textContent = document.getElementById('salon').options[document.getElementById('salon').selectedIndex].textContent
+    document.getElementById('costo-content').textContent = document.getElementById('cost').value
 }
 
 const formulario1 = document.getElementById('formulario1');
@@ -76,10 +75,13 @@ const expresiones_regulares =
     cp: /^\d{5}$/,
     email: /^([\w.+]+@{1}[a-z]+([.]{1}[a-z]{1,3})(([.]{1}[a-z]{1,3})?))$/,
     calleNum: /^[a-zA-ZÀ-ÿ\s\d]+$/,
-    col: /^[a-zA-ZÀ-ÿ.\d\s]+$/
+    col: /^[a-zA-ZÀ-ÿ.\d\s]+$/,
+    curp: /^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/
+
 }
 
 const validacion = (e) => {
+
     switch (e.target.name) {
         case 'tel':
             if (expresiones_regulares.tel.test(e.target.value)) {
@@ -101,7 +103,7 @@ const validacion = (e) => {
                 document.getElementById(e.target.name + '_group').style.color = 'red';
                 console.log('Se ha introducido un nombre invalido. El valor es: ' + e.target.value);
             }
-        break;
+            break;
 
         case 'colonia':
             if (expresiones_regulares.col.test(e.target.value)) {
@@ -142,13 +144,25 @@ const validacion = (e) => {
                 console.log('Se ha introducido una calle y num invalido. El valor es: ' + e.target.value);
             }
             break;
+
+        case 'curp':
+            if (expresiones_regulares.curp.test(e.target.value)) {
+                document.getElementById('curp_group').style.color = 'white';
+            }
+            else {
+                document.getElementById('curp_group').style.color = 'red';
+                console.log('Se ha introducido una calle y num invalido. El valor es: ' + e.target.value);
+            }
+            break;
     }
 }
+
 
 inputs.forEach((input) => {
     input.addEventListener('keyup', validacion);
     input.addEventListener('blur', validacion);
 });
+
 
 formulario1.addEventListener('submit', (e) => {
     e.preventDefault();

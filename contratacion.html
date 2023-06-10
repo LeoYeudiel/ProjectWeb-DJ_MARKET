@@ -124,76 +124,76 @@
                   <input type="number" id="cp" name="cp" class="input">
               </div>
           </section>
-      </form>
-      <section class="form evento">
-          <h2>Evento</h2>
-          <div class="input-box">
-              <label for="rfc">CURP</label>
-              <input type="text" id="rfc" name="rfc" class="input">
-          </div>
-          <div id="input-evento">
+          <section class="form evento">
+              <h2>Evento</h2>
+              <div class="input-box" id="curp_group">
+                  <label for="curp">CURP</label>
+                  <input type="text" id="curp" name="curp" class="input">
+              </div>
+              <div id="input-evento">
+                  <div class="input-box">
+                      <label for="evento">Tipo de evento</label>
+                      <select name="evento" id="evento" class="input" onchange="otherEvent()">
+                          <option value="0">Seleccione un tipo de evento</option>
+                          <option value="bautizo">Bautizo</option>
+                          <option value="primeraComunion">Primera Comunión</option>
+                          <option value="quince">XV Años</option>
+                          <option value="boda">Boda</option>
+                          <option value="birthday">Cumpleaños</option>
+                          <option value="otro">Otro</option>
+                      </select>
+                  </div>
+              </div>
               <div class="input-box">
-                  <label for="evento">Tipo de evento</label>
-                  <select name="evento" id="evento" class="input" onchange="otherEvent()">
-                      <option value="0">Seleccione un tipo de evento</option>
-                      <option value="bautizo">Bautizo</option>
-                      <option value="primeraComunion">Primera Comunión</option>
-                      <option value="quince">XV Años</option>
-                      <option value="boda">Boda</option>
-                      <option value="birthday">Cumpleaños</option>
-                      <option value="otro">Otro</option>
+                  <label for="people">Numero de personas</label>
+                  <input type="number" id="people" name="people" class="input" min="75" max="200" value="0">
+              </div>
+              <div class="input-box">
+                  <label for="dj">DJ</label>
+                  <select name="dj" id="dj" class="input">
+                      <option value="0">Seleccione un DJ para su evento</option>
+                      <option value="op1">Martin Garrix</option>
+                      <option value="op2">David Guetta</option>
+                      <option value="op3">Dimitri Vegas & Like Mike</option>
+                      <option value="op4">Alok</option>
+                      <option value="op5">Marshmello</option>
+                      <option value="op6">DJ Snake</option>
+                      <option value="op7">Skrillex</option>
+                      <option value="op8">Avicci</option>
+                      <option value="op9">Aoki</option>
+                      <option value="op10">Afrojack</option>
+                      <option value="op11">Alan Walker"</option>
+                      <option value="op12">Alesso</option>
                   </select>
               </div>
-          </div>
-          <div class="input-box">
-              <label for="people">Numero de personas</label>
-              <input type="number" id="people" name="people" class="input" min="75" max="200" value="0">
-          </div>
-          <div class="input-box">
-              <label for="dj">DJ</label>
-              <select name="dj" id="dj" class="input">
-                  <option value="0">Seleccione un DJ para su evento</option>
-                  <option value="op1">Martin Garrix</option>
-                  <option value="op2">David Guetta</option>
-                  <option value="op3">Dimitri Vegas & Like Mike</option>
-                  <option value="op4">Alok</option>
-                  <option value="op5">Marshmello</option>
-                  <option value="op6">DJ Snake</option>
-                  <option value="op7">Skrillex</option>
-                  <option value="op8">Avicci</option>
-                  <option value="op9">Aoki</option>
-                  <option value="op10">Afrojack</option>
-                  <option value="op11">Alan Walker"</option>
-                  <option value="op12">Alesso</option>
-              </select>
-          </div>
-          <div class="input-box">
-              <label for="salon">Salón</label>
-              <select name="salon" id="salon" class="input">
-                  <option value="0">Seleccione un Salon para su evento</option>
-                  <option value="lugar1">Lugar economico 1</option>
-                  <option value="lugar1">Lugar economico 2</option>
-                  <option value="lugar1">Lugar economico 3</option>
-                  <option value="lugar1">Lugar ejecutivo 1</option>
-                  <option value="lugar1">Lugar ejecutivo 2</option>
-                  <option value="lugar1">Lugar ejecutivo 3</option>
-              </select>
-          </div>
-          <div class="input-box">
-              <label for="cost">Costo</label>
-              <input type="number" id="cost" name="cost">
-          </div>
-          <div class="input-box">
-              <label for="fecha">Fecha:</label>
-              <input type="date" id="fecha" name="fecha">
-          </div>
-
-          <div class="input-box">
-              <label for="hora">Hora:</label>
-              <input type="time" id="hora" name="hora">
-          </div>
-
-      </section>
+              <div class="input-box">
+                  <label for="salon">Salón</label>
+                  <select name="salon" id="salon" class="input">
+                      <option value="0">Seleccione un Salon para su evento</option>
+                      <option value="lugar1">Lugar economico 1</option>
+                      <option value="lugar1">Lugar economico 2</option>
+                      <option value="lugar1">Lugar economico 3</option>
+                      <option value="lugar1">Lugar ejecutivo 1</option>
+                      <option value="lugar1">Lugar ejecutivo 2</option>
+                      <option value="lugar1">Lugar ejecutivo 3</option>
+                  </select>
+              </div>
+              <div class="input-box">
+                  <label for="cost">Costo</label>
+                  <input type="number" id="cost" name="cost">
+              </div>
+              <div class="input-box">
+                  <label for="fecha">Fecha:</label>
+                  <input type="date" id="fecha" name="fecha">
+              </div>
+    
+              <div class="input-box">
+                  <label for="hora">Hora:</label>
+                  <input type="time" id="hora" name="hora">
+              </div>
+    
+          </section>
+      </form>
           <div class="buttons">
               <input type="reset">
               <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="confirmar()">Registrar</button>
