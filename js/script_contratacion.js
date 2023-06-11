@@ -1,20 +1,20 @@
 //Agrega el campo de otro evento
 const otherEvent = () => {
-  if (document.getElementById('evento').value == 'otro') {
-    document.getElementById('input-evento').insertAdjacentHTML(
-      "beforeend",
-      `
+    if (document.getElementById('evento').value == 'otro') {
+        document.getElementById('input-evento').insertAdjacentHTML(
+            "beforeend",
+            `
       <div class="input-box" id="input-otro-evento">
         <label for="otro_evento">Otro tipo de evento</label>
         <input type="text" id="otro_evento" name="otro_evento" class="input">
       </div>
       `
-    )
-  } else {
-    if (document.getElementById('input-otro-evento')) {
-      document.getElementById('input-otro-evento').remove()
+        )
+    } else {
+        if (document.getElementById('input-otro-evento')) {
+            document.getElementById('input-otro-evento').remove()
+        }
     }
-  }
 }
 
 const expresiones_regulares =
@@ -33,7 +33,11 @@ const confirmar = () => {
     let msg = ``;
     const nPersonas = document.getElementById('people').value == "" ? "0" : document.getElementById('people').value;
     const nEntidad = document.getElementById('entidad').value;
+<<<<<<< HEAD
+    const nAlcaldia = document.getElementById('alcaldia').value;
+=======
     const nAlcaldia = document.getElementById('alcaldia').value ;
+<<<<<<< HEAD
     const nEvento = document.getElementById('evento').value;
     const nDj = document.getElementById('dj').value;
     const nSalon = document.getElementById('salon').value;
@@ -48,6 +52,14 @@ const confirmar = () => {
     const calleNum = document.getElementById('calle').value;
     const colonia = document.getElementById('colonia').value;
     const cp = document.getElementById('cp').value;
+=======
+    const nEvento = document.getElementById('evento').value
+    const nDj = document.getElementById('dj').value
+    const nSalon = document.getElementById('salon').value
+    const fecha = document.getElementById('fecha').value
+    const hora = document.getElementById('hora').value
+>>>>>>> 16714eb3b26a5e9a4e3c5ff034c6efccbc617946
+>>>>>>> f9d88031fbff010988bae53ffeafafde5d7208c9
 
     console.log('Numero de personas ingresadas ' + nPersonas);
     console.log('Entidad Seleccionada ' + nEntidad);
@@ -67,6 +79,7 @@ const confirmar = () => {
     console.log('Codigo Postal ' + cp);
     /*console.log(1);*/
 
+<<<<<<< HEAD
     if (!expresiones_regulares.nom.test(nombre))
     {
         msg += `Nombre inválido. `
@@ -100,9 +113,16 @@ const confirmar = () => {
         msg += `Código Postal inválido. `
     }
 
+=======
+<<<<<<< HEAD
+    if (parseInt(nPersonas) < 70 || parseInt(nPersonas) > 200) {
+        alert('El numero de personas debe estar entre 70 y 200');
+=======
+>>>>>>> f9d88031fbff010988bae53ffeafafde5d7208c9
     if (parseInt(nPersonas) < 70 || parseInt(nPersonas) > 200)
     {
         msg+=`El numero de personas debe estar entre 70 y 200. `
+>>>>>>> 16714eb3b26a5e9a4e3c5ff034c6efccbc617946
     }
 
     if (nEntidad == "0") {
@@ -160,6 +180,16 @@ const confirmar = () => {
     document.getElementById('colonia-content').textContent = document.getElementById('colonia').value
     document.getElementById('entidad-content').textContent = document.getElementById('entidad').value
     document.getElementById('alcaldia-content').textContent = document.getElementById('alcaldia').options[document.getElementById('alcaldia').selectedIndex].textContent
+<<<<<<< HEAD
+    document.getElementById('curp-content').textContent = document.getElementById('curp').value
+
+    if (document.getElementById('evento').value == 'otro') {
+        document.getElementById('type_evento-content').textContent = document.getElementById('otro_evento').value
+    } else {
+        document.getElementById('type_evento-content').textContent = document.getElementById('evento').options[document.getElementById('evento').selectedIndex].textContent
+    }
+
+=======
     document.getElementById('rfc-content').textContent = document.getElementById('curp').value
 
     if (document.getElementById('evento').value == 'otro') {
@@ -168,10 +198,13 @@ const confirmar = () => {
       document.getElementById('type_evento-content').textContent = document.getElementById('evento').options[document.getElementById('evento').selectedIndex].textContent
     }
   
+>>>>>>> 16714eb3b26a5e9a4e3c5ff034c6efccbc617946
     document.getElementById('people-content').textContent = document.getElementById('people').value
     document.getElementById('dj-content').textContent = document.getElementById('dj').options[document.getElementById('dj').selectedIndex].textContent
     document.getElementById('salon-content').textContent = document.getElementById('salon').options[document.getElementById('salon').selectedIndex].textContent
     document.getElementById('costo-content').textContent = document.getElementById('cost').value
+<<<<<<< HEAD
+=======
   }
 }
 
@@ -180,13 +213,38 @@ const cerrar = () => {
   modal.classList.remove('show')
   modal.style.display = 'none'
   document.body.classList.remove('modal-open')
+>>>>>>> 16714eb3b26a5e9a4e3c5ff034c6efccbc617946
 }
 
 const formulario1 = document.getElementById('formulario1');
 const inputs = document.querySelectorAll('#formulario1 input');
 
+<<<<<<< HEAD
+=======
+const expresiones_regulares =
+{
+    nom: /^[a-zA-ZÀ-ÿ\s]+$/,
+    tel: /^\d{10}$/,
+    cp: /^\d{5}$/,
+    email: /^([\w.+]+@{1}[a-z]+([.]{1}[a-z]{1,3})(([.]{1}[a-z]{1,3})?))$/,
+    calleNum: /^[a-zA-ZÀ-ÿ\s\d]+$/,
+<<<<<<< HEAD
+    col: /^[a-zA-ZÀ-ÿ.\d\s]+$/,
+    curp: /^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/
+
+}
+
+const validacion = (e) => {
+
+=======
+    col: /^[a-zA-ZÀ-ÿ.\d\s]+$/, 
+    curp: /^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/
+}
+
+>>>>>>> f9d88031fbff010988bae53ffeafafde5d7208c9
 const validacion = (e) => {
     console.log(e.target)
+>>>>>>> 16714eb3b26a5e9a4e3c5ff034c6efccbc617946
     switch (e.target.name) {
         case 'tel':
             if (expresiones_regulares.tel.test(e.target.value)) {
@@ -208,7 +266,7 @@ const validacion = (e) => {
                 document.getElementById(e.target.name + '_group').style.color = 'red';
                 console.log('Se ha introducido un nombre invalido. El valor es: ' + e.target.value);
             }
-        break;
+            break;
 
         case 'colonia':
             if (expresiones_regulares.col.test(e.target.value)) {
@@ -249,6 +307,16 @@ const validacion = (e) => {
                 console.log('Se ha introducido una calle y num invalido. El valor es: ' + e.target.value);
             }
             break;
+<<<<<<< HEAD
+
+        case 'curp':
+            if (expresiones_regulares.curp.test(e.target.value)) {
+                document.getElementById('curp_group').style.color = 'white';
+            }
+            else {
+                document.getElementById('curp_group').style.color = 'red';
+                console.log('Se ha introducido una calle y num invalido. El valor es: ' + e.target.value);
+=======
         /*case 'fecha':
             if (e.target.value > Date.now()) {
                 document.getElementById('fecha_group').style.color = 'white';
@@ -263,11 +331,14 @@ const validacion = (e) => {
             }else{
                 document.getElementById('curp_group').style.color = 'red';
                 console.log('Se ha introducido un CURP invalido. El valor es: ' + e.target.value);
+>>>>>>> 16714eb3b26a5e9a4e3c5ff034c6efccbc617946
             }
             break;
     }
 }
 
+<<<<<<< HEAD
+=======
 function validaFecha() {
     var input_f = document.getElementById('fecha').value;
     var fecha = new Date(input_f);
@@ -360,11 +431,13 @@ function RegresaMunicipios() {
 //    }
 //    document.getElementById("fecha").min = anio + '-' + mes + '-' + dia;
 //});
+>>>>>>> 16714eb3b26a5e9a4e3c5ff034c6efccbc617946
 
 inputs.forEach((input) => {
     input.addEventListener('keyup', validacion);
     input.addEventListener('blur', validacion);
 });
+
 
 formulario1.addEventListener('submit', (e) => {
     e.preventDefault();
