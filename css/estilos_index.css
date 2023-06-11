@@ -264,7 +264,7 @@ main .content-main{
   outline: none;
 }
 
-.places-economics, .places-ejecutivs{
+.places-economics, .places-ejecutivs, .horarios{
   background-color: #16161a;
   padding-top: 30px;
 }
@@ -326,6 +326,32 @@ main .content-main{
 .place .contentBox ul li{
   margin-top: 5px;
 }
+
+#botonContrata {
+  
+  background-color: #7851eb; /* Color de fondo */
+  border: 2px; /* Sin borde */
+  color: white; /* Color del texto */
+  padding: 10px 20px; /* Espaciado interno */
+  text-align: center; /* Alineación del texto */
+  text-decoration: none; /* Sin subrayado */
+  display: inline-block; /* Mostrar como elemento en línea */
+  font-size: 18px; /* Tamaño de fuente */
+  margin: 4px 2px; /* Márgenes externos */
+  cursor: pointer; /* Cursor de puntero al pasar por encima */
+  border-radius: 22px; /* Borde redondeado */
+}
+
+#botonContrata:hover {
+  background-color: #bf98ef; /* Color de fondo al pasar por encima */
+}
+
+#botonContrata:active {
+  background-color: #e1bef4; /* Color de fondo al hacer clic */
+}
+
+
+
 
 footer{
   width: 100%;
