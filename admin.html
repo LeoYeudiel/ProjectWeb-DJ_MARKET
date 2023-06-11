@@ -29,7 +29,7 @@
   <main>
     <section class="form">
       <h2>Iniciar Sesión</h2>
-      <form action="">
+      <form action="php/inicioSesion.php" method="POST">
         <div class="input-box">
           <label for="user" id="labelUser">Usuario/Correo</label>
           <input type="text" id="user" name="user" class="input">
@@ -40,8 +40,8 @@
           <div class="show" onclick="mostrar()"><ion-icon name="eye-outline"></ion-icon></div>
         </div>
         <div class="buttons">
-<!--           <input type="submit" value="Iniciar Sesión"> -->
-          <a onclick="validarForm()">Iniciar Sesión</a>
+          <input type="submit" value="Iniciar Sesión">
+          <!-- <a onclick="validarForm()">Iniciar Sesión</a> -->
         </div>
       </form>
     </section>
@@ -71,6 +71,7 @@
     </div>
     <p class="footer-center">Derechos de autor &copy; 2023. Todos los derechos reservados.</p>
   </footer>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script type="text/javascript">
         window.addEventListener('scroll', function(){
             const header = document.querySelector('header');
@@ -83,10 +84,17 @@
             menuToggle.classList.toggle('active');
             navigation.classList.toggle('active');
         }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const access =urlParams.get("access");
+
+        if(access == 0){
+          swal("Error", "No tienes acceso", "error");
+        }
+
     </script>
     <script src="js/script_admin.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 </html>
