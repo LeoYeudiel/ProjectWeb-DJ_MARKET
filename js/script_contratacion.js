@@ -34,7 +34,7 @@ const confirmar = () => {
     const nPersonas = document.getElementById('people').value == "" ? "0" : document.getElementById('people').value;
     const nEntidad = document.getElementById('entidad').value;
 
-    const nAlcaldia = document.getElementById('alcaldia').value ;
+    const nAlcaldia = document.getElementById('alcaldia').value;
     const nEvento = document.getElementById('evento').value;
     const nDj = document.getElementById('dj').value;
     const nSalon = document.getElementById('salon').value;
@@ -45,10 +45,13 @@ const confirmar = () => {
     const nombre = document.getElementById('name').value;
     const apPat = document.getElementById('app').value;
     const apMat = document.getElementById('apm').value;
+    const tel = document.getElementById('tel').value;
+
     const correo = document.getElementById('email').value;
     const calleNum = document.getElementById('calle').value;
     const colonia = document.getElementById('colonia').value;
     const cp = document.getElementById('cp').value;
+    const curp = document.getElementById('curp').value;
 
     console.log('Numero de personas ingresadas ' + nPersonas);
     console.log('Entidad Seleccionada ' + nEntidad);
@@ -66,6 +69,7 @@ const confirmar = () => {
     console.log('Calle y Número ' + calleNum);
     console.log('Colonia ' + colonia);
     console.log('Codigo Postal ' + cp);
+    console.log('CURP ' + curp);
     /*console.log(1);*/
 
     if (!expresiones_regulares.nom.test(nombre))
@@ -85,10 +89,6 @@ const confirmar = () => {
         msg += `Teléfono inválido. `
     }
 
-    if (!expresiones_regulares.tel.test(tel)) {
-        msg += `Teléfono inválido. `
-    }
-
     if (!expresiones_regulares.calleNum.test(calleNum)) {
         msg += `Dirección inválida. `
     }
@@ -99,6 +99,10 @@ const confirmar = () => {
 
     if (!expresiones_regulares.cp.test(cp)) {
         msg += `Código Postal inválido. `
+    }
+
+    if (!expresiones_regulares.curp.test(curp)) {
+        msg += `CURP inválido. `
     }
 
     if (parseInt(nPersonas) < 70 || parseInt(nPersonas) > 200)
@@ -126,7 +130,7 @@ const confirmar = () => {
         msg+=`Seleccione un Salon. `
     }
 
-    if (!fecha_valor || fecha_valor < fecha_actual){
+    if (fecha == "" || fecha_valor < fecha_actual){
         msg+=`Seleccione una Fecha válida. `
     }
 
@@ -337,7 +341,7 @@ function RegresaMunicipios() {
 
             for (var i = 0; i < tablaJSON.length; i++) {
                 const option = document.createElement("option");
-                option.value = tablaJSON[i].id_estado;
+                option.value = tablaJSON[i].id_municipio;
                 option.text = tablaJSON[i].nombre;
                 select.add(option);
             }
@@ -345,6 +349,62 @@ function RegresaMunicipios() {
     };
     request.send();
 }
+
+function Alta()
+{
+    console.log("Municipio= " + document.getElementById('alcaldia').value);
+    const nPersonas = document.getElementById('people').value;
+    const nEntidad = document.getElementById('entidad').value;
+    const nAlcaldia = document.getElementById('alcaldia').value;
+    const nEvento = document.getElementById('evento').value;
+    const nDj = document.getElementById('dj').value;
+    const nSalon = document.getElementById('salon').value;
+    const fecha = document.getElementById('fecha').value;
+    const hora_inicio = document.getElementById('hora').value;  
+    const hora_fin = document.getElementById('hora').value;  
+    const nombre = document.getElementById('name').value;
+    const apPat = document.getElementById('app').value;
+    const apMat = document.getElementById('apm').value;
+    const tel = document.getElementById('tel').value;
+    const correo = document.getElementById('email').value;
+    const calleNum = document.getElementById('calle').value;
+    const colonia = document.getElementById('colonia').value;
+    const cp = document.getElementById('cp').value;
+    const curp = document.getElementById('curp').value;
+
+    var request = new XMLHttpRequest();
+
+    request.open("POST", "php/altaContratacion.php?nombre=" + encodeURIComponent(nombre)
+        + '&apPat=' + encodeURIComponent(apPat)
+        + '&apMat=' + encodeURIComponent(apMat)
+        + '&tel=' + encodeURIComponent(tel)
+        + '&correo=' + encodeURIComponent(correo)
+        + '&calleNum=' + encodeURIComponent(calleNum)
+        + '&colonia=' + encodeURIComponent(colonia)
+        + '&nEntidad=' + encodeURIComponent(nEntidad)
+        + '&nAlcaldia=' + encodeURIComponent(nAlcaldia)
+        + '&cp=' + encodeURIComponent(cp)
+        + '&curp=' + encodeURIComponent(curp)
+        + '&nEvento=' + encodeURIComponent(nEvento)
+        + '&nPersonas=' + encodeURIComponent(nPersonas)
+        + '&nDj=' + encodeURIComponent(nDj)
+        + '&nSalon=' + encodeURIComponent(nSalon)
+        + '&fecha=' + encodeURIComponent(fecha)
+        + '&hora_inicio=' + encodeURIComponent(hora_inicio)
+        + '&hora_fin=' + encodeURIComponent(hora_fin)
+        , true);
+
+    request.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            console.log("La contratación se dio de alta con éxito");
+            console.log(request.responseText);
+            /*window.location.reload();    */   
+        }
+    };
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.send();
+}
+
 //const inputFecha = document.getElementById('#fecha');
 
 //inputFecha.onmouseover((i) => {

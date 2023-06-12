@@ -30,7 +30,7 @@
             </div>
         </nav>
     </header>
-    <form action="" id="formulario1">
+    <form id="formulario1" method="post">
         <main id="principal">
             <section class="form contacto">
                 <h2>Contacto</h2>
@@ -144,12 +144,12 @@
                                 class="input"
                                 onchange="otherEvent()">
                             <option value="0">Seleccione un tipo de evento</option>
-                            <option value="bautizo">Bautizo</option>
-                            <option value="primeraComunion">Primera Comunión</option>
-                            <option value="quince">XV Años</option>
-                            <option value="boda">Boda</option>
-                            <option value="birthday">Cumpleaños</option>
-                            <option value="otro">Otro</option>
+                            <option value="1">Bautizo</option>
+                            <option value="2">Primera Comunión</option>
+                            <option value="3">XV Años</option>
+                            <option value="4">Boda</option>
+                            <option value="5">Cumpleaños</option>
+                            <option value="6">Otro</option>
                         </select>
                     </div>
                 </div>
@@ -167,30 +167,30 @@
                     <label for="dj">DJ</label>
                     <select name="dj" id="dj" class="input">
                         <option value="0">Seleccione un DJ para su evento</option>
-                        <option value="op1">Martin Garrix</option>
-                        <option value="op2">David Guetta</option>
-                        <option value="op3">Dimitri Vegas & Like Mike</option>
-                        <option value="op4">Alok</option>
-                        <option value="op5">Marshmello</option>
-                        <option value="op6">DJ Snake</option>
-                        <option value="op7">Skrillex</option>
-                        <option value="op8">Avicci</option>
-                        <option value="op9">Aoki</option>
-                        <option value="op10">Afrojack</option>
-                        <option value="op11">Alan Walker"</option>
-                        <option value="op12">Alesso</option>
+                        <option value="1">Martin Garrix</option>
+                        <option value="2">David Guetta</option>
+                        <option value="3">Dimitri Vegas & Like Mike</option>
+                        <option value="4">Alok</option>
+                        <option value="5">Marshmello</option>
+                        <option value="6">DJ Snake</option>
+                        <option value="7">Skrillex</option>
+                        <option value="8">Avicci</option>
+                        <option value="9">Steve Aoki</option>
+                        <option value="10">Afrojack</option>
+                        <option value="11">Alan Walker"</option>
+                        <option value="12">Alesso</option>
                     </select>
                 </div>
                 <div class="input-box">
                     <label for="salon">Salón</label>
                     <select name="salon" id="salon" class="input">
                         <option value="0">Seleccione un Salon para su evento</option>
-                        <option value="lugar1">Lugar economico 1</option>
-                        <option value="lugar1">Lugar economico 2</option>
-                        <option value="lugar1">Lugar economico 3</option>
-                        <option value="lugar1">Lugar ejecutivo 1</option>
-                        <option value="lugar1">Lugar ejecutivo 2</option>
-                        <option value="lugar1">Lugar ejecutivo 3</option>
+                        <option value="1">Lugar economico 1</option>
+                        <option value="2">Lugar economico 2</option>
+                        <option value="3">Lugar economico 3</option>
+                        <option value="4">Lugar ejecutivo 1</option>
+                        <option value="5">Lugar ejecutivo 2</option>
+                        <option value="6">Lugar ejecutivo 3</option>
                     </select>
                 </div>
                 <div class="input-box">
@@ -202,7 +202,6 @@
                     <input type="date"
                            id="fecha"
                            name="fecha"
-                           min="1999-12-31"
                            onchange="validaFecha()" />
                 </div>
 
@@ -250,7 +249,8 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="cerrar()"> Modificar </button>
-                            <button type="button" class="btn btn-primary">Aceptar</button>
+                            <!--<input type="submit" class="btn btn-secondary" value="Aceptar"/>-->
+                            <button type="button" class="btn btn-primary" onclick="Alta()">Aceptar</button>
                         </div>
                     </div>
                 </div>
