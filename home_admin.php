@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +10,10 @@
   <link rel="stylesheet" href="css/estilos_home_admin.css">
 </head>
 <body>
+  <?php 
+      require('php/verificar_sesion.php');
+      require('php/conexion.php');
+  ?>
   <header>
     <nav>
       <div class="left">
@@ -18,19 +22,15 @@
       </div>
       <div class="menuToggle" onclick="toggleMenu()"></div>
       <div class="rigth">
-        <li><a href="index.html" onclick="toggleMenu()">Inicio</a></li>
-        <li><a href="contratacion.html" onclick="toggleMenu()">Contratación</a></li>
-        <li><a href="comprobante.html" onclick="toggleMenu()">Comprobante</a></li>
         <li><a href="php/cerrarSesion.php" onclick="toggleMenu()">Cerrar Sesión</a></li>
       </div>
     </nav>
   </header>
-
   <main>
     <section class="header">
-      <h2>Hola Admin</h2>
+      <h2>Hola <?php echo $user ?></h2>
       <hr>
-      <a href="#">+</a>
+      <a href="contratacion_admin.php">+</a>
     </section>
     <section class="table">
       <table>

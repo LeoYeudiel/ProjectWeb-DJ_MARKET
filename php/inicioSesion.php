@@ -20,10 +20,12 @@
     session_start();
     $id_admin = $registro[0]["id_admin"];
     $pass = $registro[0]["password"];
+    $user = $registro[0]["user"];
 
     $_SESSION["id_admin"] = $id_admin;
     $_SESSION["pass"] = $pass;
-    header("location:../home_admin.html");
+    $_SESSION["user"] = $user;
+    header("location:../home_admin.php");
   }else{
     header("location:../admin.html?access=0");
   }
