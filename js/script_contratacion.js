@@ -350,18 +350,16 @@ function RegresaMunicipios() {
     request.send();
 }
 
-function Alta()
-{
+function Alta() {
     console.log("Municipio= " + document.getElementById('alcaldia').value);
     const nPersonas = document.getElementById('people').value;
-    const nEntidad = document.getElementById('entidad').value;
     const nAlcaldia = document.getElementById('alcaldia').value;
     const nEvento = document.getElementById('evento').value;
     const nDj = document.getElementById('dj').value;
     const nSalon = document.getElementById('salon').value;
+    const costo = document.getElementById('cost').value;
     const fecha = document.getElementById('fecha').value;
-    const hora_inicio = document.getElementById('hora').value;  
-    const hora_fin = document.getElementById('hora').value;  
+    const hora_inicio = document.getElementById('hora').value;
     const nombre = document.getElementById('name').value;
     const apPat = document.getElementById('app').value;
     const apMat = document.getElementById('apm').value;
@@ -373,37 +371,103 @@ function Alta()
     const curp = document.getElementById('curp').value;
 
     var request = new XMLHttpRequest();
+    var url = "php/altaContratacion.php";
+    var parametros = "nombre=" + encodeURIComponent(nombre) +
+        "&apPat=" + encodeURIComponent(apPat) +
+        "&apMat=" + encodeURIComponent(apMat) +
+        "&tel=" + encodeURIComponent(tel) +
+        "&email=" + encodeURIComponent(correo) +
+        "&calleNum=" + encodeURIComponent(calleNum) +
+        "&colonia=" + encodeURIComponent(colonia) +
+        "&nAlcaldia=" + encodeURIComponent(nAlcaldia) +
+        "&cp=" + encodeURIComponent(cp) +
+        "&curp=" + encodeURIComponent(curp) +
+        "&nEvento=" + encodeURIComponent(nEvento) +
+        "&nPersonas=" + encodeURIComponent(nPersonas) +
+        "&nDj=" + encodeURIComponent(nDj) +
+        "&nSalon=" + encodeURIComponent(nSalon) +
+        "&costo=" + encodeURIComponent(costo) +
+        "&fecha=" + encodeURIComponent(fecha) +
+        "&hora_inicio=" + encodeURIComponent(hora_inicio);
 
-    request.open("POST", "php/altaContratacion.php?nombre=" + encodeURIComponent(nombre)
-        + '&apPat=' + encodeURIComponent(apPat)
-        + '&apMat=' + encodeURIComponent(apMat)
-        + '&tel=' + encodeURIComponent(tel)
-        + '&correo=' + encodeURIComponent(correo)
-        + '&calleNum=' + encodeURIComponent(calleNum)
-        + '&colonia=' + encodeURIComponent(colonia)
-        + '&nEntidad=' + encodeURIComponent(nEntidad)
-        + '&nAlcaldia=' + encodeURIComponent(nAlcaldia)
-        + '&cp=' + encodeURIComponent(cp)
-        + '&curp=' + encodeURIComponent(curp)
-        + '&nEvento=' + encodeURIComponent(nEvento)
-        + '&nPersonas=' + encodeURIComponent(nPersonas)
-        + '&nDj=' + encodeURIComponent(nDj)
-        + '&nSalon=' + encodeURIComponent(nSalon)
-        + '&fecha=' + encodeURIComponent(fecha)
-        + '&hora_inicio=' + encodeURIComponent(hora_inicio)
-        + '&hora_fin=' + encodeURIComponent(hora_fin)
-        , true);
+    request.open("POST", url, true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-    request.onreadystatechange = function () {
-        if (this.readyState === 4 && this.status === 200) {
+    request.onload = function () {
+        if (request.status === 200) {
             console.log("La contratación se dio de alta con éxito");
             console.log(request.responseText);
-            /*window.location.reload();    */   
+            // window.location.reload();
+        }
+
+        swal({
+            title: "Enviado",
+            text: "¡Tu información ha sido enviada!\nFOLIO: " + request.responseText,
+            icon: "success",
+        });
+
+        document.getElementById('people').value = "0";
+        document.getElementById('entidad').value = "0";
+        document.getElementById('alcaldia').value = "0";
+        document.getElementById('evento').value = "0";
+        document.getElementById('dj').value = "0";
+        document.getElementById('salon').value = "0";
+        document.getElementById('cost').value = "";
+        document.getElementById('fecha').value = "";
+        document.getElementById('hora').value = "";
+        document.getElementById('hora').value = "";
+        document.getElementById('name').value = "";
+        document.getElementById('app').value = "";
+        document.getElementById('apm').value = "";
+        document.getElementById('tel').value = "";
+        document.getElementById('email').value = "";
+        document.getElementById('calle').value = "";
+        document.getElementById('colonia').value = "";
+        document.getElementById('cp').value = "";
+        document.getElementById('curp').value = "";
+    };
+
+    request.onerror = function () {
+        console.log("No se dio de alta :(");
+        swal({
+            title: "¡Oops!",
+            text: "Intente de nuevo",
+            icon: "error",
+        });
+    };
+
+    request.send(parametros);
+};
+
+function RegresaCosto() {
+    console.log("nDJ : " + document.getElementById('dj').value);
+    console.log("nSalon : " + document.getElementById('salon').value);
+
+    var request = new XMLHttpRequest();
+    var url = "php/regresaCostos.php";
+    var parametros = "nDJ=" + encodeURIComponent(document.getElementById('dj').value) +
+        "&nSalon=" + encodeURIComponent(document.getElementById('salon').value);
+
+    request.open("GET", url + "?" + parametros, true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    request.onload = function () {
+        if (request.status === 200) {
+            var tablaJSON = JSON.parse(request.responseText);
+            for (var i = 0; i < tablaJSON.length; i++) {
+                console.log("El Costo Total es de: " + tablaJSON[i].COSTO_TOTAL);
+                document.getElementById('cost').value = parseInt(tablaJSON[i].COSTO_TOTAL);
+            }
         }
     };
-    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    request.onerror = function () {
+        console.log("NO SE OBTUVO EL COSTO");
+    };
+
     request.send();
-}
+};
+
 
 //const inputFecha = document.getElementById('#fecha');
 
