@@ -141,11 +141,13 @@ main table tr button{
 main table tr button:nth-child(1){
   background: #7f5af0;
   padding: 10px;
+  cursor: pointer;
 }
 
 main table tr button:nth-child(2){
   background: #2cb67d;
   padding: 10px;
+  cursor: pointer;
 }
 
 ion-icon{

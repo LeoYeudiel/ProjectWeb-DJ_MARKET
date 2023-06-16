@@ -52,7 +52,6 @@ BEGIN
     	SET _AUX_COSTO_2 = CASE WHEN _id_salon = 0 THEN 0 ELSE (SELECT costo FROM `salon` WHERE id_salon = _id_salon) END;
     	SELECT (_AUX_COSTO_1 + _AUX_COSTO_2) AS 'COSTO_TOTAL';
     END IF;
-    
 END //
 
 DELIMITER ;
