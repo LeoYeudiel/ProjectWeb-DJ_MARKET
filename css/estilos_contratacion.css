@@ -134,6 +134,10 @@ main .form .input-box{
   width: 100%;
 }
 
+#alcaldia option{
+  text-transform: capitalize;
+}
+
 .buttons{
   width: 100%;
   margin-top: 30px;
