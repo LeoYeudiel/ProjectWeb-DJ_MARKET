@@ -13,6 +13,15 @@
   <?php 
       require('php/verificar_sesion.php');
       require('php/conexion.php');
+
+      $sql = "SELECT c.id_contratacion, p.nombre, p.app, p.apm, c.fecha, c.hora_inicio, c.hora_fin FROM contratacion c INNER JOIN persona p ON c.id_persona = p.id_persona WHERE c.estatus = 1 ORDER BY fecha DESC;";
+
+      $resultado = mysqli_query($conexion, $sql);
+
+      $contrataciones = array();
+      while($filas = $resultado->fetch_assoc()){
+        $contrataciones[] = $filas;
+      }
   ?>
   <header>
     <nav>
@@ -41,30 +50,16 @@
           <th></th>
         </thead>
         <tbody>
-          <tr>
-            <td>RFC 1</td>
-            <td>Lettu</td>
-            <td>08:00 - 12:00</td>
-            <td><button><ion-icon name="trash-outline"></ion-icon></button><button><ion-icon name="create-outline"></ion-icon></button></td>
+          <?php 
+            for($i = 0; $i < sizeof($contrataciones); $i++){
+          ?>
+          <tr id="<?php echo $contrataciones[$i]['id_contratacion'];?>">
+            <td><?php echo $contrataciones[$i]['id_contratacion'];?></td>
+            <td><?php echo "{$contrataciones[$i]['nombre']} {$contrataciones[$i]['app']} {$contrataciones[$i]['apm']}";?></td>
+            <td><?php echo "{$contrataciones[$i]['fecha']} {$contrataciones[$i]['hora_inicio']} - {$contrataciones[$i]['hora_fin']}";?></td>
+            <td><button onclick ="<?php echo "borrar('{$contrataciones[$i]['id_contratacion']}')";?>"><ion-icon name="trash-outline"></ion-icon></button><button><ion-icon name="create-outline"></ion-icon></button></td>
           </tr>
-          <tr>
-            <td>RFC 2</td>
-            <td>Jess</td>
-            <td>08:00 - 12:00</td>
-            <td><button><ion-icon name="trash-outline"></ion-icon></button><button><ion-icon name="create-outline"></ion-icon></button></td>
-          </tr>
-          <tr>
-            <td>RFC 3</td>
-            <td>Serch</td>
-            <td>08:00 - 12:00</td>
-            <td><button><ion-icon name="trash-outline"></ion-icon></button><button><ion-icon name="create-outline"></ion-icon></button></td>
-          </tr>
-          <tr>
-            <td>PIRL030512HMCXMXA9</td>
-            <td>Leo Yeudiel Piña Ramírez</td>
-            <td>08:00 - 12:00 28/05/2023</td>
-            <td><button><ion-icon name="trash-outline"></ion-icon></button><button><ion-icon name="create-outline"></ion-icon></button></td>
-          </tr>
+          <?php } ?>
         </tbody>
       </table>
     </section>
