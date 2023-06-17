@@ -163,23 +163,23 @@ const confirmar = () => {
     document.getElementById('email-content').textContent = document.getElementById('email').value
     document.getElementById('calle-content').textContent = document.getElementById('calle').value
     document.getElementById('colonia-content').textContent = document.getElementById('colonia').value
-    document.getElementById('entidad-content').textContent = document.getElementById('entidad').value
+      document.getElementById('entidad-content').textContent = document.getElementById('entidad').options[document.getElementById('entidad').selectedIndex].textContent
     document.getElementById('alcaldia-content').textContent = document.getElementById('alcaldia').options[document.getElementById('alcaldia').selectedIndex].textContent
     document.getElementById('curp-content').textContent = document.getElementById('curp').value
 
-    if (document.getElementById('evento').value == 'otro') {
-        document.getElementById('type_evento-content').textContent = document.getElementById('otro_evento').value
+    if (document.getElementById('evento').value == '6') {
+        document.getElementById('type_evento-content').textContent = 'OTRO'
     } else {
         document.getElementById('type_evento-content').textContent = document.getElementById('evento').options[document.getElementById('evento').selectedIndex].textContent
     }
 
-    document.getElementById('rfc-content').textContent = document.getElementById('curp').value
+    /*document.getElementById('rfc-content').textContent = document.getElementById('curp').value*/
 
-    if (document.getElementById('evento').value == 'otro') {
-      document.getElementById('type_evento-content').textContent = document.getElementById('otro_evento').value
-    } else {
-      document.getElementById('type_evento-content').textContent = document.getElementById('evento').options[document.getElementById('evento').selectedIndex].textContent
-    }
+    /*if (document.getElementById('evento').value == 'otro') {
+        document.getElementById('type_evento-content').textContent = document.getElementById('otro_evento').value
+        } else {
+        document.getElementById('type_evento-content').textContent = document.getElementById('evento').options[document.getElementById('evento').selectedIndex].textContent
+    }*/
 
     document.getElementById('people-content').textContent = document.getElementById('people').value
     document.getElementById('dj-content').textContent = document.getElementById('dj').options[document.getElementById('dj').selectedIndex].textContent
@@ -408,11 +408,13 @@ function Alta() {
 
         document.getElementById('people').value = "0";
         document.getElementById('entidad').value = "0";
-        document.getElementById('alcaldia').value = "0";
+
+        RegresaMunicipios();
+
         document.getElementById('evento').value = "0";
         document.getElementById('dj').value = "0";
         document.getElementById('salon').value = "0";
-        document.getElementById('cost').value = "";
+        document.getElementById('cost').value = "0";
         document.getElementById('fecha').value = "";
         document.getElementById('hora').value = "";
         document.getElementById('hora').value = "";
@@ -425,6 +427,8 @@ function Alta() {
         document.getElementById('colonia').value = "";
         document.getElementById('cp').value = "";
         document.getElementById('curp').value = "";
+
+        cerrar();
     };
 
     request.onerror = function () {
