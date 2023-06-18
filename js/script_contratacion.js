@@ -42,6 +42,8 @@ const confirmar = () => {
     const hora = document.getElementById('hora').value;
     const fecha_valor = new Date(fecha);
     var fecha_actual = new Date();
+    const horaValor = new Date();
+    horaValor.setHours(hora.split(':')[0], hora.split(':')[1], 0);
     const nombre = document.getElementById('name').value;
     const apPat = document.getElementById('app').value;
     const apMat = document.getElementById('apm').value;
@@ -71,6 +73,21 @@ const confirmar = () => {
     console.log('Codigo Postal ' + cp);
     console.log('CURP ' + curp);
     /*console.log(1);*/
+
+    var horaInicioViernes = new Date();
+    horaInicioViernes.setHours(12, 0, 0);
+    var horaFinViernes = new Date();
+    horaFinViernes.setHours(19, 0, 0);
+
+    var horaInicioSabado = new Date();
+    horaInicioSabado.setHours(14, 0, 0);
+    var horaFinSabado = new Date();
+    horaFinSabado.setHours(19, 0, 0);
+
+    var horaInicioDomingo = new Date();
+    horaInicioDomingo.setHours(9, 0, 0);
+    var horaFinDomingo = new Date();
+    horaFinDomingo.setHours(14, 0, 0);
 
     if (!expresiones_regulares.nom.test(nombre))
     {
@@ -130,9 +147,25 @@ const confirmar = () => {
         msg+=`Seleccione un Salon. `
     }
 
-    if (fecha == "" || fecha_valor < fecha_actual){
-        msg+=`Seleccione una Fecha válida. `
+    // O es Lunes, así hasta el 6 que es Domingo
+    if (fecha == "" || fecha_valor < fecha_actual || fecha_valor.getDay() < 4 ){
+        msg+=`Seleccione una Fecha válida. Nota: Los únicos días disponibles para reservar son viernes, sabado y domingo. `
     }
+
+    if (fecha_valor.getDay() == 4 && (horaValor < horaInicioViernes || horaValor > horaFinViernes)) {
+        msg += `Los horarios disponibles para el Viernes son de 12:00 PM a 7:00 PM. `
+    }
+
+    if (fecha_valor.getDay() == 5 && (horaValor < horaInicioSabado || horaValor > horaFinSabado)) {
+        msg += `Los horarios disponibles para el Sabado son de 2:00 PM a 7:00 PM. `
+    }
+
+    if (fecha_valor.getDay() == 6 && (horaValor < horaInicioDomingo || horaValor > horaFinDomingo)) {
+        msg += `Los horarios disponibles para el Domingo son de 9:00 AM a 2:00 PM. `
+    }
+
+    console.log("hora valor: " + horaValor);
+    console.log("valor del dia: " + fecha_valor.getDay());
 
     if(!hora){
         msg+=`Selecciona una Hora para el evento. `

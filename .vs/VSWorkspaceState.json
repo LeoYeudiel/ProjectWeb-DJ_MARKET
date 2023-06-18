@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
+    "\\js",
     "\\php"
   ],
-  "SelectedNode": "\\php\\altaContratacion.php",
+  "SelectedNode": "\\contratacion_admin.php",
   "PreviewInSolutionExplorer": false
 }
