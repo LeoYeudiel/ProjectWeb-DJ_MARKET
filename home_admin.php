@@ -57,7 +57,7 @@
             <td><?php echo $contrataciones[$i]['id_contratacion'];?></td>
             <td><?php echo "{$contrataciones[$i]['nombre']} {$contrataciones[$i]['app']} {$contrataciones[$i]['apm']}";?></td>
             <td><?php echo "{$contrataciones[$i]['fecha']} {$contrataciones[$i]['hora_inicio']} - {$contrataciones[$i]['hora_fin']}";?></td>
-            <td><button onclick ="<?php echo "borrar('{$contrataciones[$i]['id_contratacion']}')";?>"><ion-icon name="trash-outline"></ion-icon></button><button><ion-icon name="create-outline"></ion-icon></button></td>
+            <td><button onclick="<?php echo "borrar('{$contrataciones[$i]['id_contratacion']}')";?>"><ion-icon name="trash-outline"></ion-icon></button><button onclick="<?php echo "editar('{$contrataciones[$i]['id_contratacion']}')";?>"><ion-icon name="create-outline"></ion-icon></button></td>
           </tr>
           <?php } ?>
         </tbody>

@@ -114,7 +114,7 @@
                 <h2>Evento</h2>
                 <div class="input-box" id="curp_group">
                     <label for="curp">CURP</label>
-                    <input type="text" id="curp" name="curp" class="input" />
+                    <input type="text" id="curp" name="curp" class="input" disabled/>
                 </div>
                 <div id="input-evento">
                     <div class="input-box">
@@ -191,7 +191,7 @@
                     <input type="date"
                            id="fecha"
                            name="fecha"
-                           onchange="validaFecha()" />
+                           onchange="validaFecha()" disabled/>
                 </div>
 
                 <div class="input-box">
@@ -200,8 +200,8 @@
                 </div>
             </section>
             <div class="buttons">
-                <input type="reset" />
-                <button type="button" onclick="confirmar()">Registrar</button>
+                <input type="button" onclick="window.location.reload();" value="Reset"/>
+                <button type="button" onclick="confirmar()">Actualizar</button>
             </div>
 
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -209,13 +209,13 @@
                     <div class="modal-content" id="modal">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="staticBackdropLabel">
-                                Confirmación de contratación
+                                Verificación datos de contratación
                             </h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="cerrar()"></button>
                         </div>
                         <div class="modal-body">
-                            Hola <span id="name-content"></span>, verifica que los datos de
-                            tu contratación/reservación que ingresaste sean correctos:
+                            Hola <span id="name-content"></span>, verifica que los datos ha modificar
+                            sean correctos:
                             <h3>Datos de contacto.</h3>
                             <strong>Nombre: </strong><span id="name-content2"></span>. <br />
                             <strong>Apellido Materno: </strong><span id="app-content"></span>. <br />
@@ -228,18 +228,19 @@
                             <strong>Entidad Federativa: </strong><span id="entidad-content"></span>. <br />
                             <strong>Alcaldía: </strong><span id="alcaldia-content"></span>.
                             <br />
-                            <h3>Datos de evento.</h3>
+                            <h3>Datos de evento. </h3>
                             <strong>CURP: </strong><span id="curp-content"></span>. <br />
                             <strong>Tipo de evento: </strong><span id="type_evento-content"></span>. <br />
                             <strong>Numero de personas: </strong><span id="people-content"></span>. <br />
                             <strong>DJ: </strong><span id="dj-content"></span>. <br />
                             <strong>Salon: </strong><span id="salon-content"></span>. <br />
                             <strong>Costo: </strong><span id="costo-content"></span>. <br />
+                            <!--<strong>RFC: </strong><span id="rfc-content"></span>. <br />-->
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="cerrar()"> Modificar </button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="cerrar()">Modificar</button>
                             <!--<input type="submit" class="btn btn-secondary" value="Aceptar"/>-->
-                            <button type="button" class="btn btn-primary" onclick="Alta()">Aceptar</button>
+                            <button type="button" class="btn btn-primary" onclick="Edita()">Aceptar</button>
                         </div>
                     </div>
                 </div>
@@ -302,6 +303,7 @@
         }
     </script>
     <script src="js/script_contratacion.js"></script>
+    <script src="js/script_edit_contratacion.js"></script>
     <script type="module"
             src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule

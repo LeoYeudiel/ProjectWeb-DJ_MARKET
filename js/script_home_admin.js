@@ -54,3 +54,28 @@ const borrar = async (folio) => {
     request.send(parametros);
   }
 }
+
+const editar = async (folio) => {
+    const confirm = await swal({
+        title: "Editar",
+        text: "¿Esta seguro de querer editar ésta contratación?",
+        icon: "warning",
+        buttons: [{
+            text: "Cancelar",
+            value: false,
+            visible: true,
+            className: "btn btn-light"
+        },
+        {
+            text: "Aceptar",
+            value: true,
+            visible: true,
+            className: "btn btn-warning"
+        }]
+
+    })
+
+    if (confirm) {
+        window.location.href = "contratacion_edit_admin.php?folio=" + encodeURIComponent(folio);
+    }
+}
