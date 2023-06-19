@@ -184,7 +184,7 @@
                 </div>
                 <div class="input-box">
                     <label for="cost">Costo</label>
-                    <input type="number" id="cost" name="cost" readonly />
+                    <input type="number" id="cost" name="cost" readonly value="0"/>
                 </div>
                 <div class="input-box" id="fecha_group">
                     <label for="fecha">Fecha:</label>

@@ -18,7 +18,7 @@
 		$fecha = $_POST["fecha"];
 		$costo = $_POST["costo"];
 		$hora_inicio = $_POST["hora_inicio"];
-		$hora_fin = date("H:i", strtotime($hora_inicio . " + 7 hours"));
+		$hora_fin = date("H:i", strtotime($hora_inicio . " + 5 hours"));
 		$id_contratacion = $_POST["curp"] . '_' . $_POST["fecha"];
 
 		$consultaC = "CALL CONTRATACION(0, '$nombre', '$apPat', '$apMat', '$tel', '$correo', '$calleNum', '$colonia', $alcaldia, '$cp', '$curp', '$id_contratacion', 0, $evento, $nDJ, $nSalon, $nPersonas, $costo, '$fecha', '$hora_inicio', 'alta_contratacion', '$hora_fin', 1);";

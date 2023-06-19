@@ -42,8 +42,8 @@ const confirmar = () => {
     const hora = document.getElementById('hora').value;
     const fecha_valor = new Date(fecha);
     var fecha_actual = new Date();
-    const horaValor = new Date();
-    horaValor.setHours(hora.split(':')[0], hora.split(':')[1], 0);
+    //const horaValor = new Date();
+    //horaValor.setHours(hora.split(':')[0], hora.split(':')[1], 0);
     const nombre = document.getElementById('name').value;
     const apPat = document.getElementById('app').value;
     const apMat = document.getElementById('apm').value;
@@ -74,20 +74,24 @@ const confirmar = () => {
     console.log('CURP ' + curp);
     /*console.log(1);*/
 
-    var horaInicioViernes = new Date();
-    horaInicioViernes.setHours(12, 0, 0);
-    var horaFinViernes = new Date();
-    horaFinViernes.setHours(19, 0, 0);
+    //var horaViernes_1 = new Date();
+    //horaViernes_1.setHours(12, 0, 0);
+    //var horaViernes_2 = new Date();
+    //horaViernes_2.setHours(17, 0, 0);
+    var horaViernes_1 = "12:00";
+    var horaViernes_2 = "17:00";
 
-    var horaInicioSabado = new Date();
-    horaInicioSabado.setHours(14, 0, 0);
-    var horaFinSabado = new Date();
-    horaFinSabado.setHours(19, 0, 0);
+    //var horaSabado_1 = new Date();
+    //horaSabado_1.setHours(14, 0, 0);
+    //var horaSabado_2 = new Date();
+    //horaSabado_2.setHours(19, 0, 0);
 
-    var horaInicioDomingo = new Date();
-    horaInicioDomingo.setHours(9, 0, 0);
-    var horaFinDomingo = new Date();
-    horaFinDomingo.setHours(14, 0, 0);
+    var horaSabado_1 = "14:00";
+    var horaSabado_2 = "19:00";
+
+    //var horaDomingo = new Date();
+    //horaDomingo.setHours(9, 0, 0);
+    var horaDomingo = "09:00";
 
     if (!expresiones_regulares.nom.test(nombre))
     {
@@ -148,23 +152,23 @@ const confirmar = () => {
     }
 
     // O es Lunes, así hasta el 6 que es Domingo
-    if (fecha == "" || fecha_valor < fecha_actual || fecha_valor.getDay() < 4 ){
+    if (fecha == "" || fecha_valor < fecha_actual || fecha_valor.getDay() < 4 || fecha.getFullYear() > 2099 ){
         msg+=`Seleccione una Fecha válida. Nota: Los únicos días disponibles para reservar son viernes, sabado y domingo. `
     }
 
-    if (fecha_valor.getDay() == 4 && (horaValor < horaInicioViernes || horaValor > horaFinViernes)) {
-        msg += `Los horarios disponibles para el Viernes son de 12:00 PM a 7:00 PM. `
+    if (fecha_valor.getDay() == 4 && (hora != horaViernes_1 && hora != horaViernes_2)) {
+        msg += `Los horarios disponibles para el Viernes son 12:00 PM y 5:00 PM. `
     }
 
-    if (fecha_valor.getDay() == 5 && (horaValor < horaInicioSabado || horaValor > horaFinSabado)) {
-        msg += `Los horarios disponibles para el Sabado son de 2:00 PM a 7:00 PM. `
+    if (fecha_valor.getDay() == 5 && (hora != horaSabado_1 && hora != horaSabado_2)) {
+        msg += `Los horarios disponibles para el Sábado son 2:00 PM y 7:00 PM. `
     }
 
-    if (fecha_valor.getDay() == 6 && (horaValor < horaInicioDomingo || horaValor > horaFinDomingo)) {
-        msg += `Los horarios disponibles para el Domingo son de 9:00 AM a 2:00 PM. `
+    if (fecha_valor.getDay() == 6 && hora != horaDomingo) {
+        msg += `El horario disponible para el Domingo es 9:00 AM. `
     }
 
-    console.log("hora valor: " + horaValor);
+    console.log("hora valor: " + hora);
     console.log("valor del dia: " + fecha_valor.getDay());
 
     if(!hora){
@@ -208,11 +212,11 @@ const confirmar = () => {
 
     /*document.getElementById('rfc-content').textContent = document.getElementById('curp').value*/
 
-    /*if (document.getElementById('evento').value == 'otro') {
+    if (document.getElementById('evento').value == '6') {
         document.getElementById('type_evento-content').textContent = document.getElementById('otro_evento').value
         } else {
         document.getElementById('type_evento-content').textContent = document.getElementById('evento').options[document.getElementById('evento').selectedIndex].textContent
-    }*/
+    }
 
     document.getElementById('people-content').textContent = document.getElementById('people').value
     document.getElementById('dj-content').textContent = document.getElementById('dj').options[document.getElementById('dj').selectedIndex].textContent
@@ -319,7 +323,7 @@ function validaFecha() {
     var fecha = new Date(input_f);
     var actual = new Date();
 
-    if (fecha < actual) {
+    if (fecha < actual || fecha.getFullYear() > 2099) {
         /*alert("La fecha no puede ser menor a la de hoy");*/
         document.getElementById('fecha_group').style.color = 'red';
     }
