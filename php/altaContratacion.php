@@ -12,6 +12,7 @@
 		$cp = $_POST["cp"];
 		$curp = $_POST["curp"];
 		$evento = $_POST["nEvento"];
+    $otroEvento = $_POST["otroEvento"];
 		$nPersonas = $_POST["nPersonas"];
 		$nDJ = $_POST["nDj"];
 		$nSalon = $_POST["nSalon"];
@@ -21,7 +22,7 @@
 		$hora_fin = date("H:i", strtotime($hora_inicio . " + 5 hours"));
 		$id_contratacion = $_POST["curp"] . '_' . $_POST["fecha"];
 
-		$consultaC = "CALL CONTRATACION(0, '$nombre', '$apPat', '$apMat', '$tel', '$correo', '$calleNum', '$colonia', $alcaldia, '$cp', '$curp', '$id_contratacion', 0, $evento, $nDJ, $nSalon, $nPersonas, $costo, '$fecha', '$hora_inicio', 'alta_contratacion', '$hora_fin', 1);";
+		$consultaC = "CALL CONTRATACION(0, '$nombre', '$apPat', '$apMat', '$tel', '$correo', '$calleNum', '$colonia', $alcaldia, '$cp', '$curp', '$id_contratacion', 0, $evento, $nDJ, $nSalon, $nPersonas, $costo, '$fecha', '$hora_inicio', 'alta_contratacion', '$hora_fin', 1, '$otroEvento');";
 		$resultadoC = mysqli_query($conexion, $consultaC);
 
 		//echo $consultaC;

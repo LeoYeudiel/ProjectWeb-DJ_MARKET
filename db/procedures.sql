@@ -25,7 +25,8 @@ CREATE PROCEDURE CONTRATACION(
     IN _hora_inicio TIME,
     IN _opcion VARCHAR(50),
     IN _hora_fin TIME,
-	IN _estatus TINYINT
+	IN _estatus TINYINT,
+  IN _otro_evento VARCHAR(50)
 )
 BEGIN
 	DECLARE _ID_INSERTADO_PERSONA INT;
@@ -39,7 +40,7 @@ BEGIN
     
     	SET _ID_INSERTADO_PERSONA = (SELECT id_persona FROM `persona` ORDER BY id_persona DESC LIMIT 1);
         
-        INSERT INTO `tipo_evento` (`id_evento`, `otro_evento`) VALUES (_id_evento, '');
+        INSERT INTO `tipo_evento` (`id_evento`, `otro_evento`) VALUES (_id_evento, _otro_evento);
         
         SET _ID_INSERTADO_EVENTO = (SELECT id_tipo_evento FROM `tipo_evento` ORDER BY id_tipo_evento DESC LIMIT 1);
     
@@ -90,3 +91,4 @@ BEGIN
 END //
 
 DELIMITER ;
+
