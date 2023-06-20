@@ -52,6 +52,41 @@ BEGIN
     	SET _AUX_COSTO_2 = CASE WHEN _id_salon = 0 THEN 0 ELSE (SELECT costo FROM `salon` WHERE id_salon = _id_salon) END;
     	SELECT (_AUX_COSTO_1 + _AUX_COSTO_2) AS 'COSTO_TOTAL';
     END IF;
+    
+    IF _opcion = 'regresa_datos_contratacion' THEN
+    	SELECT p.nombre, p.app, p.apm, p.tel, p.email, p.calle_numero, p.colonia, p.id_municipio, m.id_estado, p.cp, p.curp, te.id_evento, c.id_dj, c.id_salon, c.no_personas, c.costo_total, c.fecha, c.hora_inicio FROM `contratacion` AS c
+        INNER JOIN `persona` AS p ON c.id_persona = p.id_persona
+       	INNER JOIN `tipo_evento`AS te ON c.id_tipo_evento = te.id_tipo_evento
+        INNER JOIN `municipio`AS m ON p.id_municipio = m.id_municipio
+        WHERE c.id_contratacion = _id_contratacion;
+    END IF;
+    
+    IF _opcion = 'actualiza_contratacion' THEN
+    	UPDATE `contratacion` SET 
+        id_dj = _id_dj,
+        id_salon = _id_salon,
+        no_personas = _no_personas,
+        costo_total = _costo_total,
+        hora_inicio = _hora_inicio,
+        hora_fin = _hora_fin
+        WHERE id_contratacion = _id_contratacion;
+        
+        UPDATE `tipo_evento` 
+        SET id_evento = _id_evento
+        WHERE id_tipo_evento = (SELECT id_tipo_evento FROM `contratacion` WHERE id_contratacion = _id_contratacion);
+        
+        UPDATE `persona` 
+        SET nombre = _nombre,
+        app = _app,
+        apm = _apm,
+        tel = _tel,
+        email = _email,
+        calle_numero = _calle_numero,
+        colonia = _colonia,
+        id_municipio = _id_municipio,
+        cp = _cp
+        WHERE id_persona = (SELECT id_persona FROM `contratacion` WHERE id_contratacion = _id_contratacion);
+    END IF;
 END //
 
 DELIMITER ;
