@@ -52,8 +52,12 @@ function Edita(){
             title: "Actualizado",
             text: "¡Tu información ha sido actualizada!",
             icon: "success",
+            button: "Generar Comprobante",
+        }).then((value) => {
+            window.open('php/generar_pdf.php?folio=' + folio, '_blank');
+
         });
-      
+
       cerrar()
     };
 

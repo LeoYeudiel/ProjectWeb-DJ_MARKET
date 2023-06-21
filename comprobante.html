@@ -29,14 +29,14 @@
   <main>
     <section class="form">
       <h2>Recuperar Comprobante</h2>
-      <h3 style="color: white; font-size: small;">Ingresa tu folio, es la CURP más fecha del evento (CURPDDMMAA)</h3>
+      <h3 style="color: white; font-size: small;">Ingresa tu folio, es la CURP más fecha del evento (CURP_AAAA-MM-DD)</h3>
       <form action="" id="formulario">
         <div class="input-box" id="folio-group">
           <label for="folio">Folio :</label>
-          <input type="text" id="folio" name="folio" class="input" placeholder="JUCJ040517MDFRNRA5290823" >
+          <input type="text" id="folio" name="folio" class="input" placeholder="JUCJ040517MDFRNRA5_2023-08-29" >
         </div>
         <div class="buttons">
-          <input type="submit" value="Consultar Comprobante" name="enviar">
+          <button type="button" onclick="confirmar()">Consultar Comprobante</button>
         </div>
       </form>
     </section>
