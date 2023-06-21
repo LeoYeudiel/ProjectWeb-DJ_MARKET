@@ -184,7 +184,7 @@
                 </div>
                 <div class="input-box">
                     <label for="cost">Costo</label>
-                    <input type="number" id="cost" name="cost" readonly />
+                    <input type="number" id="cost" name="cost" readonly value="0"/>
                 </div>
                 <div class="input-box" id="fecha_group">
                     <label for="fecha">Fecha:</label>
@@ -234,7 +234,8 @@
                             <strong>Numero de personas: </strong><span id="people-content"></span>. <br />
                             <strong>DJ: </strong><span id="dj-content"></span>. <br />
                             <strong>Salon: </strong><span id="salon-content"></span>. <br />
-                            <strong>Costo: </strong><span id="costo-content"></span>. <br />
+                            <strong>Costo: </strong><span id="costo-content"></span>. <br /><br>
+                            <strong>FOLIO: </strong><span id="folio-content"></span>. <br />
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="cerrar()"> Modificar </button>
