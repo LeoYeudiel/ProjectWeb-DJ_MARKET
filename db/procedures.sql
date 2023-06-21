@@ -55,7 +55,7 @@ BEGIN
     END IF;
     
     IF _opcion = 'regresa_datos_contratacion' THEN
-    	SELECT p.nombre, p.app, p.apm, p.tel, p.email, p.calle_numero, p.colonia, p.id_municipio, m.id_estado, p.cp, p.curp, te.id_evento, c.id_dj, c.id_salon, c.no_personas, c.costo_total, c.fecha, c.hora_inicio FROM `contratacion` AS c
+    	SELECT p.nombre, p.app, p.apm, p.tel, p.email, p.calle_numero, p.colonia, p.id_municipio, m.id_estado, p.cp, p.curp, te.id_evento, te.otro_evento, c.id_dj, c.id_salon, c.no_personas, c.costo_total, c.fecha, c.hora_inicio FROM `contratacion` AS c
         INNER JOIN `persona` AS p ON c.id_persona = p.id_persona
        	INNER JOIN `tipo_evento`AS te ON c.id_tipo_evento = te.id_tipo_evento
         INNER JOIN `municipio`AS m ON p.id_municipio = m.id_municipio
@@ -73,7 +73,8 @@ BEGIN
         WHERE id_contratacion = _id_contratacion;
         
         UPDATE `tipo_evento` 
-        SET id_evento = _id_evento
+        SET id_evento = _id_evento,
+        otro_evento = _otro_evento
         WHERE id_tipo_evento = (SELECT id_tipo_evento FROM `contratacion` WHERE id_contratacion = _id_contratacion);
         
         UPDATE `persona` 

@@ -184,7 +184,9 @@ const confirmar = () => {
     msg += `Los horarios disponibles para el Sábado son 2:00 PM y 7:00 PM. `;
   }
 
-  if (fecha_valor.getDay() == 6 && hora != horaDomingo) {
+  console.log(hora.slice(0,5), horaDomingo)
+  console.log(hora != horaDomingo)
+  if (fecha_valor.getDay() == 6 && hora.slice(0,5) != horaDomingo) {
     msg += `El horario disponible para el Domingo es 9:00 AM. `;
   }
 

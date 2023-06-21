@@ -14,6 +14,19 @@
   <?php 
       require('php/verificar_sesion.php');
       require('php/conexion.php');
+	    $folio = $_GET["folio"];
+
+      $consulta = "CALL CONTRATACION(0, '', '', '', '', '', '', '', 0, '', '', '$folio', 0, 0, 0, 0, 0, 0, '2000-01-01', '', 'regresa_datos_contratacion', '', 0, '');";
+      $resultado = mysqli_query($conexion, $consulta);
+
+      $datos = array();
+      if ($resultado->num_rows > 0)
+      {
+        while ($tupla = $resultado->fetch_assoc())
+        {
+          $datos[] = $tupla;
+        }
+      }
   ?>
     <header>
         <nav>
@@ -34,79 +47,90 @@
                 <h2>Contacto</h2>
                 <div class="input-box" id="name_group">
                     <label for="name">Nombre</label>
-                    <input type="text" id="name" name="name" class="input" />
+                    <input type="text" id="name" name="name" class="input" value = "<?php echo $datos[0]["nombre"];?>" />
                 </div>
                 <div class="input-box" id="app_group">
                     <label for="app">Apellido Paterno</label>
-                    <input type="text" id="app" name="app" class="input" />
+                    <input type="text" id="app" name="app" class="input" value = "<?php echo $datos[0]["app"];?>"/>
                 </div>
                 <div class="input-box" id="apm_group">
                     <label for="apm">Apellido Materno</label>
-                    <input type="text" id="apm" name="apm" class="input" />
+                    <input type="text" id="apm" name="apm" class="input" value = "<?php echo $datos[0]["apm"];?>"/>
                 </div>
                 <div class="input-box" id="tel_group">
                     <label for="tel">Telefono o Celular</label>
-                    <input type="tel" id="tel" name="tel" class="input" />
+                    <input type="tel" id="tel" name="tel" class="input" value = "<?php echo $datos[0]["tel"];?>"/>
                     <p></p>
                 </div>
 
                 <div class="input-box" id="email_group">
                     <label for="email">Correo Electronico</label>
-                    <input type="email" id="email" name="email" class="input" />
+                    <input type="email" id="email" name="email" class="input" value = "<?php echo $datos[0]["email"];?>"/>
                 </div>
                 <div class="input-box" id="calleNum_group">
                     <label for="calle">Calle y Numero</label>
-                    <input type="text" id="calle" name="calle" class="input" />
+                    <input type="text" id="calle" name="calle" class="input" value = "<?php echo $datos[0]["calle_numero"];?>"/>
                 </div>
                 <div class="input-box" id="colonia_group">
                     <label for="colonia">Colonia</label>
-                    <input type="text" id="colonia" name="colonia" class="input" />
+                    <input type="text" id="colonia" name="colonia" class="input" value = "<?php echo $datos[0]["colonia"];?>"/>
                 </div>
                 <div class="input-box">
                     <label for="entidad">Entidad Federativa</label>
                     <select name="entidad" id="entidad" class="input" onchange="RegresaMunicipios()">
                         <option value="0">Seleccione una Entidad Federativa</option>
                         <?php 
+                          require('php/conexion.php');
                           $sql = "SELECT * FROM estado;";
 
                           $resultado = mysqli_query($conexion, $sql);
-
+                          
                           $estados = array();
                           while($filas = $resultado->fetch_assoc()){
                             $estados[] = $filas;
                           }
 
                           for($i = 0; $i < sizeof($estados); $i++){
+                            if($estados[$i]["id_estado"] == $datos[0]["id_estado"]){
                         ?>
-                          <option value="<?php echo $estados[$i]["id_estado"]?>"><?php echo $estados[$i]["nombre"]?></option>
-                        <?php } ?>
+                          <option value="<?php echo $estados[$i]["id_estado"]?>" selected ><?php echo $estados[$i]["nombre"];?></option>
+                          <?php }else{ ?>
+                          <option value="<?php echo $estados[$i]["id_estado"]?>"><?php echo $estados[$i]["nombre"];?></option>
+                        <?php 
+                          }
+                        } ?>
                     </select>
                 </div>
                 <div class="input-box">
                     <label for="alcaldia">Alcaldía</label>
                     <select name="alcaldia" id="alcaldia" class="input">
-                        <option value="0" selected>Seleccione una Entidad Federativa Primero</option>
-                        <!--<option value="azcapotzalco">Azcapotzalco</option>
-                        <option value="coyoacan">Coyoacán</option>
-                        <option value="cuajimalpa">Cuajimalpa de Morelos</option>
-                        <option value="gustavo">Gustavo A. Madero</option>
-                        <option value="iztacalco">Iztacalco</option>
-                        <option value="iztapalapa">Iztapalapa</option>
-                        <option value="magdalena">La Magdalena Contreras</option>
-                        <option value="milpa">Milpa Alta</option>
-                        <option value="obregon">Álvaro Obregón</option>
-                        <option value="tlahuac">Tláhuac</option>
-                        <option value="tlalpan">Tlalpan</option>
-                        <option value="xochimilco">Xochimilco</option>
-                        <option value="benito">Benito Juárez</option>
-                        <option value="cuauhtémoc">Cuauhtémoc</option>
-                        <option value="hidalgo">Miguel Hidalgo</option>
-                        <option value="venustiano">Venustiano Carranza</option>-->
+                        <option value="0" selected>Seleccione una Entidad Federativa</option>
+                        <?php 
+                          $sql = "SELECT * FROM municipio WHERE id_estado = {$datos[0]["id_estado"]};";
+
+                          $resultado = mysqli_query($conexion, $sql);
+                          
+                          $municipios = array();
+                          while($filas = $resultado->fetch_assoc()){
+                            $municipios[] = $filas;
+                          }
+
+                          for($i = 0; $i < sizeof($municipios); $i++){
+                            $textoCapitalizado = mb_convert_case(mb_strtolower($municipios[$i]["nombre"], 'UTF-8'), MB_CASE_TITLE, 'UTF-8');
+                            echo $textoCapitalizado;
+                            if($municipios[$i]["id_municipio"] == $datos[0]["id_municipio"]){
+                        ?>
+                          <option value="<?php echo $municipios[$i]["id_municipio"]?>" selected><?php echo $textoCapitalizado;?></option>
+                          <?php }else{ ?>
+                          <option value="<?php echo $municipios[$i]["id_municipio"]?>"><?php echo $textoCapitalizado;?></option>
+                        <?php 
+                          }
+                        } ?>
                     </select>
                 </div>
                 <div class="input-box" id="cp_group">
                     <label for="cp">Codigo Postal</label>
-                    <input type="number" id="cp" name="cp" class="input" />
+                    <input type="number" id="cp" name="cp" class="input" value = "<?php echo $datos[0]["cp"];?>"/>
                 </div>
             </section>
 
@@ -114,7 +138,7 @@
                 <h2>Evento</h2>
                 <div class="input-box" id="curp_group">
                     <label for="curp">CURP</label>
-                    <input type="text" id="curp" name="curp" class="input" disabled/>
+                    <input type="text" id="curp" name="curp" class="input" disabled value = "<?php echo $datos[0]["curp"];?>"/>
                 </div>
                 <div id="input-evento">
                     <div class="input-box">
@@ -132,15 +156,26 @@
                             }
 
                             for($i = 0; $i < sizeof($eventos); $i++){
+                              if($eventos[$i]["id_evento"] == $datos[0]["id_evento"]){
                           ?>
-                            <option value="<?php echo $eventos[$i]["id_evento"]?>"><?php echo $eventos[$i]["nombre"]?></option>
-                          <?php } ?>    
+                            <option value="<?php echo $eventos[$i]["id_evento"]?>" selected ><?php echo $eventos[$i]["nombre"];?></option>
+                            <?php }else{ ?>
+                            <option value="<?php echo $eventos[$i]["id_evento"]?>"><?php echo $eventos[$i]["nombre"];?></option>
+                          <?php 
+                            }
+                          } ?>   
                         </select>
                     </div>
+                    <?php if($datos[0]["id_evento"] == "6"){?>
+                      <div class="input-box" id="input-otro-evento">
+                        <label for="otro_evento">Otro tipo de evento</label>
+                        <input type="text" id="otro_evento" name="otro_evento" class="input" value = "<?php echo $datos[0]["otro_evento"];?>">
+                      </div>
+                    <?php } ?>
                 </div>
                 <div class="input-box">
                     <label for="people">Numero de personas</label>
-                    <input type="number" id="people" name="people" class="input" min="75" max="200" value="0" />
+                    <input type="number" id="people" name="people" class="input" min="75" max="200" value = "<?php echo $datos[0]["no_personas"];?>" />
                 </div>
                 <div class="input-box">
                     <label for="dj">DJ</label>
@@ -157,9 +192,14 @@
                           }
 
                           for($i = 0; $i < sizeof($djs); $i++){
+                            if($djs[$i]["id_dj"] == $datos[0]["id_dj"]){
                         ?>
-                          <option value="<?php echo $djs[$i]["id_dj"]?>"><?php echo $djs[$i]["nombre"]?></option>
-                        <?php } ?>
+                          <option value="<?php echo $djs[$i]["id_dj"]?>" selected ><?php echo $djs[$i]["nombre"];?></option>
+                          <?php }else{ ?>
+                          <option value="<?php echo $djs[$i]["id_dj"]?>"><?php echo $djs[$i]["nombre"];?></option>
+                        <?php 
+                          }
+                        } ?>
                     </select>
                 </div>
                 <div class="input-box">
@@ -177,26 +217,31 @@
                           }
 
                           for($i = 0; $i < sizeof($salones); $i++){
+                            if($salones[$i]["id_salon"] == $datos[0]["id_salon"]){
                         ?>
-                          <option value="<?php echo $salones[$i]["id_salon"]?>"><?php echo $salones[$i]["nombre_salon"]?></option>
-                        <?php } ?>
+                          <option value="<?php echo $salones[$i]["id_salon"]?>" selected ><?php echo $salones[$i]["nombre_salon"];?></option>
+                          <?php }else{ ?>
+                          <option value="<?php echo $salones[$i]["id_salon"]?>"><?php echo $salones[$i]["nombre_salon"];?></option>
+                        <?php 
+                          }
+                        } ?>
                     </select>
                 </div>
                 <div class="input-box">
                     <label for="cost">Costo</label>
-                    <input type="number" id="cost" name="cost" readonly />
+                    <input type="number" id="cost" name="cost" readonly value = "<?php echo $datos[0]["costo_total"];?>"/>
                 </div>
                 <div class="input-box" id="fecha_group">
                     <label for="fecha">Fecha:</label>
                     <input type="date"
-                           id="fecha"
-                           name="fecha"
-                           onchange="validaFecha()" disabled/>
+                          id="fecha"
+                          name="fecha"
+                          onchange="validaFecha()" value = "<?php echo $datos[0]["fecha"];?>" disabled/>
                 </div>
 
                 <div class="input-box">
                     <label for="hora">Hora:</label>
-                    <input type="time" id="hora" name="hora" />
+                    <input type="time" id="hora" name="hora" value = "<?php echo $datos[0]["hora_inicio"];?>"/>
                 </div>
             </section>
             <div class="buttons">
@@ -235,6 +280,7 @@
                             <strong>DJ: </strong><span id="dj-content"></span>. <br />
                             <strong>Salon: </strong><span id="salon-content"></span>. <br />
                             <strong>Costo: </strong><span id="costo-content"></span>. <br />
+                            <strong>FOLIO: </strong><span id="folio-content"></span>. <br />
                             <!--<strong>RFC: </strong><span id="rfc-content"></span>. <br />-->
                         </div>
                         <div class="modal-footer">
