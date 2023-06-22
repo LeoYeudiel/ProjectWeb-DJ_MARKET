@@ -523,7 +523,13 @@ function Alta() {
       title: "Enviado",
       text: "¡Tu información ha sido enviada!\nFOLIO: " + request.responseText,
       icon: "success",
-    });
+      button: "Generar Comprobante",
+  }).then((value) => {
+      window.open('php/generar_pdf.php?folio=' + request.responseText, '_blank');
+
+  });
+
+
 
     document.getElementById("people").value = "0";
     document.getElementById("entidad").value = "0";
