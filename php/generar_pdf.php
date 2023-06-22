@@ -27,7 +27,7 @@
             $this->SetTextColor(255,255,255);
             $this->SetY(281);
             $this->SetFont('helvetica','I','10');
-            $this->Cell(0,15,'Pagina '.$this->PageNo().'/{nb}',0,0,'C');
+            $this->Cell(0,15,utf8_decode('Página ').$this->PageNo().'/{nb}',0,0,'C');
         }
     }
 
@@ -36,7 +36,7 @@
     $sql = "SELECT c.id_contratacion, c.no_personas, c.costo_total, c.fecha, c.hora_inicio, c.hora_fin, 
     p.nombre, p.app, p.apm, p.tel, p.email, p.calle_numero, p.colonia, p.cp, p.curp,
     d.nombre,d.descripcion,d.ruta_imagen,
-    e.otro_evento,
+    e.id_evento,
     s.nombre_salon,s.descripcion,s.ruta_imagen
     
     FROM contratacion c 
@@ -47,6 +47,10 @@
     WHERE c.id_contratacion = '$folio'";
     $res = mysqli_query($conexion,$sql);
     $contratacion = mysqli_fetch_array($res);
+
+    $sql2 = "SELECT nombre FROM evento WHERE id_evento = '$contratacion[18]'";
+    $res2 = mysqli_query($conexion,$sql2);
+    $evento = mysqli_fetch_array($res2);
     $precio = number_format(intval($contratacion[2]));
 
     $pdf = new PDF();
@@ -88,7 +92,7 @@
     $pdf->SetFont('helvetica','B',12);
     $pdf->Write(5, '    Tipo de Evento:');
     $pdf->SetFont('helvetica','',12);
-    $pdf->Write(5, utf8_decode('    '.$contratacion[18]));
+    $pdf->Write(5, utf8_decode('    '.$evento[0]));
     $pdf->SetFont('helvetica','B',12);
     $pdf->Write(5, '    No. Personas:');
     $pdf->SetFont('helvetica','',12);
