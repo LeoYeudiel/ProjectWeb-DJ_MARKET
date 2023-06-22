@@ -241,7 +241,7 @@
 
                 <div class="input-box">
                     <label for="hora">Hora:</label>
-                    <input type="time" id="hora" name="hora" value = "<?php echo $datos[0]["hora_inicio"];?>"/>
+                    <input type="time" id="hora" name="hora" value = "<?php echo $datos[0]["hora_inicio"];?>" disabled/>
                 </div>
             </section>
             <div class="buttons">
