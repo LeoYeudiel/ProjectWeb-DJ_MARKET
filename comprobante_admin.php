@@ -70,6 +70,7 @@
     </div>
     <p class="footer-center">Derechos de autor &copy; 2023. Todos los derechos reservados.</p>
   </footer>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script type="text/javascript">
         window.addEventListener('scroll', function(){
             const header = document.querySelector('header');
@@ -81,6 +82,13 @@
             const navigation = document.querySelector('.rigth');
             menuToggle.classList.toggle('active');
             navigation.classList.toggle('active');
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const access =urlParams.get("access");
+
+        if(access == 0){
+          swal("Error", "No se encontró el folio", "error");
         }
     </script>
         <script src="js/script_comprobante.js"></script>

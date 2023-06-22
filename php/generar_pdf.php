@@ -44,9 +44,29 @@
     INNER JOIN dj d ON (c.id_dj = d.id_dj)
     INNER JOIN tipo_evento e ON (c.id_tipo_evento = e.id_tipo_evento)
     INNER JOIN salon s ON (c.id_salon = s.id_salon) 
-    WHERE c.id_contratacion = '$folio'";
+    WHERE c.id_contratacion = '$folio';";
     $res = mysqli_query($conexion,$sql);
     $contratacion = mysqli_fetch_array($res);
+
+
+    $registro = array();
+    while($filas = $res->fetch_assoc()){
+      $registro[] = $filas;
+    }
+
+    if($res->num_rows > 0){
+    }else{
+      session_start();
+      if(isset($_SESSION["id_admin"]) && isset($_SESSION["pass"]) && isset($_SESSION["user"])){
+        //La session existe
+        $id_admin = $_SESSION["id_admin"];
+        $pass = $_SESSION["pass"];
+        $user = $_SESSION["user"];
+        header("location:../comprobante_admin.php?access=0");
+      }else{
+        header("location:../comprobante.php?access=0");
+      }
+    }
 
     $sql2 = "SELECT nombre FROM evento WHERE id_evento = '$contratacion[18]'";
     $res2 = mysqli_query($conexion,$sql2);

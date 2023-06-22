@@ -27,6 +27,6 @@
     $_SESSION["user"] = $user;
     header("location:../home_admin.php");
   }else{
-    header("location:../admin.html?access=0");
+    header("location:../admin.php?access=0");
   }
 ?>
