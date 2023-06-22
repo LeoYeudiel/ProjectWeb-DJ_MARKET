@@ -36,7 +36,7 @@
     $sql = "SELECT c.id_contratacion, c.no_personas, c.costo_total, c.fecha, c.hora_inicio, c.hora_fin, 
     p.nombre, p.app, p.apm, p.tel, p.email, p.calle_numero, p.colonia, p.cp, p.curp,
     d.nombre,d.descripcion,d.ruta_imagen,
-    e.id_evento,
+    e.id_evento, e.otro_evento,
     s.nombre_salon,s.descripcion,s.ruta_imagen
     
     FROM contratacion c 
@@ -92,7 +92,7 @@
     $pdf->SetFont('helvetica','B',12);
     $pdf->Write(5, '    Tipo de Evento:');
     $pdf->SetFont('helvetica','',12);
-    $pdf->Write(5, utf8_decode('    '.$evento[0]));
+    $pdf->Write(5, utf8_decode('    '.$evento[0].' '.$contratacion[19]));
     $pdf->SetFont('helvetica','B',12);
     $pdf->Write(5, '    No. Personas:');
     $pdf->SetFont('helvetica','',12);
@@ -117,13 +117,13 @@
     $pdf->Image('../assets/img/'.$contratacion[17], 150, 135, 50, 50); //Cambiar la ruta de la imagen
     $pdf->SetY(190);
     $pdf->SetFont('helvetica','B',16);
-    $pdf->Cell(135,10, utf8_decode('Salón  '.$contratacion[19]),0,0);
+    $pdf->Cell(135,10, utf8_decode('Salón  '.$contratacion[20]),0,0);
     $pdf->Ln(10);
     $pdf->SetFont('helvetica','',12);
     $pdf->SetLeftMargin(15);
-    $pdf->MultiCell(130,10, utf8_decode($contratacion[20]),0,'J');
+    $pdf->MultiCell(130,10, utf8_decode($contratacion[21]),0,'J');
     $pdf->SetLeftMargin(10);
-    $pdf->Image('../assets/img/'.$contratacion[21], 150, 200, 50); 
+    $pdf->Image('../assets/img/'.$contratacion[22], 150, 200, 50); 
     $pdf->Ln(10);
     $pdf->SetY(260);
     $pdf->SetFont('helvetica','B',16);
