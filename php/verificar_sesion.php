@@ -6,6 +6,6 @@
     $pass = $_SESSION["pass"];
     $user = $_SESSION["user"];
   }else{
-    header("location:index.html");
+    header("location:index.php");
   }
 ?>

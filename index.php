@@ -18,10 +18,10 @@
       </div>
       <div class="menuToggle" onclick="toggleMenu()"></div>
       <div class="rigth">
-        <li><a href="index.html" onclick="toggleMenu()">Inicio</a></li>
-        <li><a href="contratacion.html" onclick="toggleMenu()">Contratación</a></li>
-        <li><a href="comprobante.html" onclick="toggleMenu()">Comprobante</a></li>
-        <li><a href="admin.html" onclick="toggleMenu()">Admin</a></li>
+        <li><a href="index.php" onclick="toggleMenu()">Inicio</a></li>
+        <li><a href="contratacion.php" onclick="toggleMenu()">Contratación</a></li>
+        <li><a href="comprobante.php" onclick="toggleMenu()">Comprobante</a></li>
+        <li><a href="admin.php" onclick="toggleMenu()">Admin</a></li>
       </div>
     </nav>
   </header>
