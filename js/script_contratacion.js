@@ -170,22 +170,22 @@ const confirmar = () => {
 
   if (
     fecha_valor.getDay() == 4 &&
-    hora != horaViernes_1 &&
-    hora != horaViernes_2
+    hora.slice(0,5) != horaViernes_1 &&
+    hora.slice(0,5) != horaViernes_2
   ) {
     msg += `Los horarios disponibles para el Viernes son 12:00 PM y 5:00 PM. `;
   }
 
   if (
     fecha_valor.getDay() == 5 &&
-    hora != horaSabado_1 &&
-    hora != horaSabado_2
+    hora.slice(0,5) != horaSabado_1 &&
+    hora.slice(0,5) != horaSabado_2
   ) {
     msg += `Los horarios disponibles para el Sábado son 2:00 PM y 7:00 PM. `;
   }
 
-  console.log(hora.slice(0,5), horaDomingo)
-  console.log(hora != horaDomingo)
+  console.log("Consultar fecha = " + hora.slice(0,5), horaViernes_1)
+  console.log(hora != horaViernes_1)
   if (fecha_valor.getDay() == 6 && hora.slice(0,5) != horaDomingo) {
     msg += `El horario disponible para el Domingo es 9:00 AM. `;
   }
