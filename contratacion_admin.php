@@ -187,7 +187,7 @@
                     <input type="number" id="cost" name="cost" readonly value="0"/>
                 </div>
                 <div class="input-box" id="fecha_group">
-                    <label for="fecha">Fecha:</label>
+                    <label for="fecha"><ion-icon name="alert-circle-outline" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Verifique sea días viernes, sábado o domingo"></ion-icon>Fecha:</label>
                     <input type="date"
                            id="fecha"
                            name="fecha"
@@ -195,7 +195,9 @@
                 </div>
 
                 <div class="input-box">
-                    <label for="hora">Hora:</label>
+                    <label for="hora"><ion-icon name="alert-circle-outline" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-html="true" data-bs-title="<li>Viernes de 12:00 PM y 7:00 PM.</li>
+                <li>Sábados de 2:00 PM y 9:00 PM.</li>
+                <li>Domingos de 9:00 AM.</li>"></ion-icon>Hora:</label>
                     <input type="time" id="hora" name="hora" />
                 </div>
             </section>
@@ -301,6 +303,9 @@
             menuToggle.classList.toggle("active");
             navigation.classList.toggle("active");
         }
+
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     </script>
     <script src="js/script_contratacion.js"></script>
     <script type="module"

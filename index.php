@@ -263,26 +263,6 @@
           </div>
     
         </div>
-
-
-        <!-- <div class="image-container">
-          <p>Bautizo</p>
-          <img src="assets/img/DJ_bautizo.png" alt="Bautizo">
-        </div>
-        <div class="image-container">
-          <p>Bodas</p>
-          <img src="assets/img/DJ_boda.png" alt="Boda">
-        </div>
-
-        <div class="image-container">
-          <p>Cumpleaños</p>
-          <img src="assets/img/DJ_cumple.png" alt="Cumple">
-        </div>
-
-        <div class="image-container">
-          <p>XV años</p>
-          <img src="assets/img/DJ_XV.png" alt="XV">
-        </div> -->
       </div>
         <div class="text-container">
         </div>
@@ -458,17 +438,15 @@
           <h3>Disponibilidad</h3>
           <p> Para ello contamos con los siguientes horarios disponibles :<br><br>
               <ul>
-                <li>Viernes de 12:00 p.m. a 2:00 a.m.</li>
-                <li>Sábados de 2:00 p.m. a 2:00 a.m.,</li>
-                <li>Máquina de humo</li>
-                <li>Iluminación profesional tipo antro en estructura</li>
-                <li>Domingos de 9:00 a.m. a 2:00 p.m.</li>
+                <li>Viernes: 12:00 PM y 7:00 PM</li>
+                <li>Sábados: 2:00 PM y 9:00 AM</li>
+                <li>Domingos: 9:00 AM </li>
               </ul>
               <br>
               Realiza una reservación para tu evento con el DJ de tu preferencia.
             </p>
             <br>
-            <a href="contratacion.html"><button id="botonContrata">Contrata ya!</button></a>
+            <a href="contratacion.php"><button id="botonContrata">Contrata ya!</button></a>
 
           </div>
       </article>

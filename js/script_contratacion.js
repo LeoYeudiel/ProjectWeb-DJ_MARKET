@@ -82,7 +82,7 @@ const confirmar = () => {
   //var horaViernes_2 = new Date();
   //horaViernes_2.setHours(17, 0, 0);
   var horaViernes_1 = "12:00";
-  var horaViernes_2 = "17:00";
+  var horaViernes_2 = "19:00";
 
   //var horaSabado_1 = new Date();
   //horaSabado_1.setHours(14, 0, 0);
@@ -90,7 +90,7 @@ const confirmar = () => {
   //horaSabado_2.setHours(19, 0, 0);
 
   var horaSabado_1 = "14:00";
-  var horaSabado_2 = "19:00";
+  var horaSabado_2 = "21:00";
 
   //var horaDomingo = new Date();
   //horaDomingo.setHours(9, 0, 0);
@@ -173,7 +173,7 @@ const confirmar = () => {
     hora.slice(0,5) != horaViernes_1 &&
     hora.slice(0,5) != horaViernes_2
   ) {
-    msg += `Los horarios disponibles para el Viernes son 12:00 PM y 5:00 PM. `;
+    msg += `Los horarios disponibles para el Viernes son 12:00 PM y 7:00 PM. `;
   }
 
   if (
@@ -181,7 +181,7 @@ const confirmar = () => {
     hora.slice(0,5) != horaSabado_1 &&
     hora.slice(0,5) != horaSabado_2
   ) {
-    msg += `Los horarios disponibles para el Sábado son 2:00 PM y 7:00 PM. `;
+    msg += `Los horarios disponibles para el Sábado son 2:00 PM y 9:00 PM. `;
   }
 
   console.log("Consultar fecha = " + hora.slice(0,5), horaViernes_1)
@@ -516,42 +516,46 @@ function Alta() {
     if (request.status === 200) {
       console.log("La contratación se dio de alta con éxito");
       console.log(request.responseText);
-      // window.location.reload();
     }
+    if (request.responseText == 'Existe una contratación con ese horario, por favor elija otro') {
+      swal({
+        title: "¡Oops!",
+        text: `${request.responseText}`,
+        icon: "error",
+      });
+    } else {
+      swal({
+        title: "Enviado",
+        text: "¡Tu información ha sido enviada!\nFOLIO: " + request.responseText,
+        icon: "success",
+        button: "Generar Comprobante",
+      }).then((value) => {
+          window.open('php/generar_pdf.php?folio=' + request.responseText, '_blank');
+      });
+      document.getElementById("people").value = "0";
+      document.getElementById("entidad").value = "0";
 
-    swal({
-      title: "Enviado",
-      text: "¡Tu información ha sido enviada!\nFOLIO: " + request.responseText,
-      icon: "success",
-      button: "Generar Comprobante",
-  }).then((value) => {
-      window.open('php/generar_pdf.php?folio=' + request.responseText, '_blank');
+      RegresaMunicipios();
 
-  });
-
-
-
-    document.getElementById("people").value = "0";
-    document.getElementById("entidad").value = "0";
-
-    RegresaMunicipios();
-
-    document.getElementById("evento").value = "0";
-    document.getElementById("dj").value = "0";
-    document.getElementById("salon").value = "0";
-    document.getElementById("cost").value = "0";
-    document.getElementById("fecha").value = "";
-    document.getElementById("hora").value = "";
-    document.getElementById("hora").value = "";
-    document.getElementById("name").value = "";
-    document.getElementById("app").value = "";
-    document.getElementById("apm").value = "";
-    document.getElementById("tel").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("calle").value = "";
-    document.getElementById("colonia").value = "";
-    document.getElementById("cp").value = "";
-    document.getElementById("curp").value = "";
+      document.getElementById("evento").value = "0";
+      document.getElementById("dj").value = "0";
+      document.getElementById("salon").value = "0";
+      document.getElementById("cost").value = "0";
+      document.getElementById("fecha").value = "";
+      document.getElementById("hora").value = "";
+      document.getElementById("hora").value = "";
+      document.getElementById("name").value = "";
+      document.getElementById("app").value = "";
+      document.getElementById("apm").value = "";
+      document.getElementById("tel").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("calle").value = "";
+      document.getElementById("colonia").value = "";
+      document.getElementById("cp").value = "";
+      document.getElementById("curp").value = "";
+    }
+    
+    
 
     cerrar();
   };
@@ -601,31 +605,6 @@ function RegresaCosto() {
 
   request.send();
 }
-
-//const inputFecha = document.getElementById('#fecha');
-
-//inputFecha.onmouseover((i) => {
-//    var fecha = new Date();
-//    var anio = fecha.getFullYear();
-//    var _dia = fecha.getDate();
-//    var _mes = fecha.getMonth();
-//    var mes = "";
-//    var dia = "";
-//    _mes = _mes + 1;
-//    if (_mes < 10) {
-//        mes = "0" + _mes;
-//    }
-//    else {
-//        mes = _mes.toString;
-//    }
-//    if (_dia < 10) {
-//        dia = "0" + _dia;
-//    }
-//    else {
-//        dia = _dia.toString;
-//    }
-//    document.getElementById("fecha").min = anio + '-' + mes + '-' + dia;
-//});
 
 inputs.forEach((input) => {
   input.addEventListener("keyup", validacion);
