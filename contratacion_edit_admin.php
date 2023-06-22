@@ -50,25 +50,25 @@
                     <input type="text" id="name" name="name" class="input" value = "<?php echo $datos[0]["nombre"];?>" />
                 </div>
                 <div class="input-box" id="app_group">
-                    <label for="app">Apellido Paterno</label>
+                    <label for="app">Apellido paterno</label>
                     <input type="text" id="app" name="app" class="input" value = "<?php echo $datos[0]["app"];?>"/>
                 </div>
                 <div class="input-box" id="apm_group">
-                    <label for="apm">Apellido Materno</label>
+                    <label for="apm">Apellido materno</label>
                     <input type="text" id="apm" name="apm" class="input" value = "<?php echo $datos[0]["apm"];?>"/>
                 </div>
                 <div class="input-box" id="tel_group">
-                    <label for="tel">Telefono o Celular</label>
+                    <label for="tel">Teléfono o celular</label>
                     <input type="tel" id="tel" name="tel" class="input" value = "<?php echo $datos[0]["tel"];?>"/>
                     <p></p>
                 </div>
 
                 <div class="input-box" id="email_group">
-                    <label for="email">Correo Electronico</label>
+                    <label for="email">Correo electrónico</label>
                     <input type="email" id="email" name="email" class="input" value = "<?php echo $datos[0]["email"];?>"/>
                 </div>
                 <div class="input-box" id="calleNum_group">
-                    <label for="calle">Calle y Numero</label>
+                    <label for="calle">Calle y número</label>
                     <input type="text" id="calle" name="calle" class="input" value = "<?php echo $datos[0]["calle_numero"];?>"/>
                 </div>
                 <div class="input-box" id="colonia_group">
@@ -76,7 +76,7 @@
                     <input type="text" id="colonia" name="colonia" class="input" value = "<?php echo $datos[0]["colonia"];?>"/>
                 </div>
                 <div class="input-box">
-                    <label for="entidad">Entidad Federativa</label>
+                    <label for="entidad">Entidad federativa</label>
                     <select name="entidad" id="entidad" class="input" onchange="RegresaMunicipios()">
                         <option value="0">Seleccione una Entidad Federativa</option>
                         <?php 
@@ -174,7 +174,7 @@
                     <?php } ?>
                 </div>
                 <div class="input-box">
-                    <label for="people">Numero de personas</label>
+                    <label for="people">Número de personas</label>
                     <input type="number" id="people" name="people" class="input" min="75" max="200" value = "<?php echo $datos[0]["no_personas"];?>" />
                 </div>
                 <div class="input-box">
@@ -205,7 +205,7 @@
                 <div class="input-box">
                     <label for="salon">Salón</label>
                     <select name="salon" id="salon" class="input" onchange="RegresaCosto()">
-                        <option value="0">Seleccione un Salon para su evento</option>
+                        <option value="0">Seleccione un salón para su evento</option>
                         <?php 
                           $sql = "SELECT id_salon, nombre_salon FROM salon;";
 
@@ -245,7 +245,7 @@
                 </div>
             </section>
             <div class="buttons">
-                <input type="button" onclick="window.location.reload();" value="Reset"/>
+                <!-- <input type="button" onclick="window.location.reload();" value="Reset"/> -->
                 <button type="button" onclick="confirmar()">Actualizar</button>
             </div>
 
@@ -263,11 +263,11 @@
                             sean correctos:
                             <h3>Datos de contacto.</h3>
                             <strong>Nombre: </strong><span id="name-content2"></span>. <br />
-                            <strong>Apellido Materno: </strong><span id="app-content"></span>. <br />
-                            <strong>Apellido Paterno: </strong><span id="apm-content"></span>. <br />
-                            <strong>Telefono o Celular: </strong><span id="tel-content"></span>. <br />
-                            <strong>Correo Electronico: </strong><span id="email-content"></span>. <br />
-                            <strong>Calle y Numero: </strong><span id="calle-content"></span>. <br />
+                            <strong>Apellido materno: </strong><span id="app-content"></span>. <br />
+                            <strong>Apellido paterno: </strong><span id="apm-content"></span>. <br />
+                            <strong>Teléfono o celular: </strong><span id="tel-content"></span>. <br />
+                            <strong>Correo electrónico: </strong><span id="email-content"></span>. <br />
+                            <strong>Calle y número: </strong><span id="calle-content"></span>. <br />
                             <strong>Colonia: </strong><span id="colonia-content"></span>.
                             <br />
                             <strong>Entidad Federativa: </strong><span id="entidad-content"></span>. <br />
@@ -276,9 +276,9 @@
                             <h3>Datos de evento. </h3>
                             <strong>CURP: </strong><span id="curp-content"></span>. <br />
                             <strong>Tipo de evento: </strong><span id="type_evento-content"></span>. <br />
-                            <strong>Numero de personas: </strong><span id="people-content"></span>. <br />
+                            <strong>Número de personas: </strong><span id="people-content"></span>. <br />
                             <strong>DJ: </strong><span id="dj-content"></span>. <br />
-                            <strong>Salon: </strong><span id="salon-content"></span>. <br />
+                            <strong>Salón: </strong><span id="salon-content"></span>. <br />
                             <strong>Costo: </strong><span id="costo-content"></span>. <br />
                             <strong>FOLIO: </strong><span id="folio-content"></span>. <br />
                             <!--<strong>RFC: </strong><span id="rfc-content"></span>. <br />-->
