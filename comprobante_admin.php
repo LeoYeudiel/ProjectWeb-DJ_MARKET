@@ -1,27 +1,18 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DJ Market - Home Admin</title>
+  <title>DJ Market - Admin</title>
   <link rel="icon" href="assets/img/icon.png">
   <meta name="theme-color" content="#16161a">
-  <link rel="stylesheet" href="css/estilos_home_admin.css">
+  <link rel="stylesheet" href="css/estilos_comprobante.css">
 </head>
 <body>
   <?php 
-      require('php/verificar_sesion.php');
-      require('php/conexion.php');
-
-      $sql = "SELECT c.id_contratacion, p.nombre, p.app, p.apm, c.fecha, c.hora_inicio, c.hora_fin FROM contratacion c INNER JOIN persona p ON c.id_persona = p.id_persona WHERE c.estatus = 1 ORDER BY fecha DESC;";
-
-      $resultado = mysqli_query($conexion, $sql);
-
-      $contrataciones = array();
-      while($filas = $resultado->fetch_assoc()){
-        $contrataciones[] = $filas;
-      }
+        require('php/verificar_sesion.php');
+        require('php/conexion.php');
   ?>
   <header>
     <nav>
@@ -38,33 +29,20 @@
       </div>
     </nav>
   </header>
+
   <main>
-    <section class="header">
-      <h2>Hola <?php echo $user ?></h2>
-      <hr>
-      <a href="contratacion_admin.php">+</a>
-    </section>
-    <section class="table">
-      <table>
-        <thead>
-          <th>FOLIO</th>
-          <th>Nombre</th>
-          <th>Horario</th>
-          <th></th>
-        </thead>
-        <tbody>
-          <?php 
-            for($i = 0; $i < sizeof($contrataciones); $i++){
-          ?>
-          <tr id="<?php echo $contrataciones[$i]['id_contratacion'];?>">
-            <td><?php echo $contrataciones[$i]['id_contratacion'];?></td>
-            <td><?php echo "{$contrataciones[$i]['nombre']} {$contrataciones[$i]['app']} {$contrataciones[$i]['apm']}";?></td>
-            <td><?php echo "{$contrataciones[$i]['fecha']} {$contrataciones[$i]['hora_inicio']} - {$contrataciones[$i]['hora_fin']}";?></td>
-            <td><button onclick="<?php echo "borrar('{$contrataciones[$i]['id_contratacion']}')";?>"><ion-icon name="trash-outline"></ion-icon></button><button onclick="<?php echo "editar('{$contrataciones[$i]['id_contratacion']}')";?>"><ion-icon name="create-outline"></ion-icon></button></td>
-          </tr>
-          <?php } ?>
-        </tbody>
-      </table>
+    <section class="form">
+      <h2>Recuperar Comprobante</h2>
+      <h3 style="color: white; font-size: small;">Ingresa tu folio, es la CURP más fecha del evento (CURP_AAAA-MM-DD)</h3>
+      <form action="" id="formulario">
+        <div class="input-box" id="folio-group">
+          <label for="folio">Folio :</label>
+          <input type="text" id="folio" name="folio" class="input" placeholder="JUCJ040517MDFRNRA5_2023-08-29" >
+        </div>
+        <div class="buttons">
+          <button type="button" onclick="confirmar()">Consultar Comprobante</button>
+        </div>
+      </form>
     </section>
   </main>
 
@@ -105,9 +83,8 @@
             navigation.classList.toggle('active');
         }
     </script>
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="js/script_home_admin.js"></script>
+        <script src="js/script_comprobante.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

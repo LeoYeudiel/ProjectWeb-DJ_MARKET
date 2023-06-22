@@ -23,8 +23,10 @@
             </div>
             <div class="menuToggle" onclick="toggleMenu()"></div>
             <div class="rigth">
-                <li><a href="home_admin.php" onclick="toggleMenu()">Home</a></li>
-                <li><a href="php/cerrarSesion.php" onclick="toggleMenu()">Cerrar Sesión</a></li>
+              <li><a href="home_admin.php" onclick="toggleMenu()">Home</a></li>
+              <li><a href="contratacion_admin.php" onclick="toggleMenu()">Contratación</a></li>
+              <li><a href="comprobante_admin.php" onclick="toggleMenu()">Comprobante</a></li>
+              <li><a href="php/cerrarSesion.php" onclick="toggleMenu()">Cerrar Sesión</a></li>
             </div>
         </nav>
     </header>
