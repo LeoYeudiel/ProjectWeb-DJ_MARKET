@@ -7,7 +7,7 @@
             //Agregamos un banner, imagen o logo
             $this->SetFillColor(36,38,41);
             $this->Rect(-20,0,240,45,'F');
-            $this->Image('img/icon.png',9,5,60);
+            $this->Image('../assets/img/iconWithName.png',9,5,60);
             $this->SetTextColor(255,255,255);
             $this->SetFont('helvetica','B',12);
             $this->Cell(0,3,utf8_decode('Contáctanos'),0,0,'R');
@@ -32,7 +32,7 @@
     }
 
     $folio = $_GET['folio'];
-    $conexion = mysqli_connect("localhost","root","","dj_market");
+    require('conexion.php');
     $sql = "SELECT c.id_contratacion, c.no_personas, c.costo_total, c.fecha, c.hora_inicio, c.hora_fin, 
     p.nombre, p.app, p.apm, p.tel, p.email, p.calle_numero, p.colonia, p.cp, p.curp,
     d.nombre,d.descripcion,d.ruta_imagen,
@@ -110,7 +110,7 @@
     $pdf->SetLeftMargin(15);
     $pdf->MultiCell(130,10, utf8_decode($contratacion[16]),0,'J');
     $pdf->SetLeftMargin(10);
-    $pdf->Image('img/'.$contratacion[17], 150, 135, 50, 50); //Cambiar la ruta de la imagen
+    $pdf->Image('../assets/img/'.$contratacion[17], 150, 135, 50, 50); //Cambiar la ruta de la imagen
     $pdf->SetY(190);
     $pdf->SetFont('helvetica','B',16);
     $pdf->Cell(135,10, utf8_decode('Salón  '.$contratacion[19]),0,0);
@@ -119,7 +119,7 @@
     $pdf->SetLeftMargin(15);
     $pdf->MultiCell(130,10, utf8_decode($contratacion[20]),0,'J');
     $pdf->SetLeftMargin(10);
-    $pdf->Image('img/'.$contratacion[21], 150, 200, 50); 
+    $pdf->Image('../assets/img/'.$contratacion[21], 150, 200, 50); 
     $pdf->Ln(10);
     $pdf->SetY(260);
     $pdf->SetFont('helvetica','B',16);
