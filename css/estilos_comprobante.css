@@ -142,7 +142,8 @@ main .form .input-box{
   flex-wrap: wrap;
 }
 
-.buttons input{
+.buttons input,
+.buttons button{
   color: #fffffe;
   font-size: 1.2em;
   background: #7f5af0;
@@ -155,7 +156,8 @@ main .form .input-box{
   
 }
 
-.buttons input:hover{
+.buttons input:hover,
+.buttons button:hover{
   width: 81%;
   letter-spacing: 2px;
 }
