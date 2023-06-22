@@ -6,7 +6,7 @@
   $user = $_POST['user'];
   $password = $_POST['password'];
 
-  $sql = "SELECT * FROM admin WHERE user ='". $user . "' OR email = '". $user."' AND password = '". $password . "';";
+  $sql = "SELECT * FROM admin WHERE (user ='$user' OR email = '$user') AND password = '$password';";
 
   $resultado = mysqli_query($conexion, $sql);
   
