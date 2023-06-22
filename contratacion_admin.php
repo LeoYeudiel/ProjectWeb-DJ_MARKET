@@ -57,7 +57,7 @@
                     <input type="email" id="email" name="email" class="input" />
                 </div>
                 <div class="input-box" id="calleNum_group">
-                    <label for="calle">Calle y núumero</label>
+                    <label for="calle">Calle y número</label>
                     <input type="text" id="calle" name="calle" class="input" />
                 </div>
                 <div class="input-box" id="colonia_group">

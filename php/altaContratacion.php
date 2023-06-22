@@ -22,7 +22,7 @@
 		$hora_fin = date("H:i", strtotime($hora_inicio . " + 5 hours"));
 		$id_contratacion = $_POST["curp"] . '_' . $_POST["fecha"];
 
-    $verificacion = "SELECT * FROM contratacion WHERE hora_inicio = '$hora_inicio' AND id_salon = $nSalon;";
+    $verificacion = "SELECT * FROM contratacion WHERE hora_inicio = '$hora_inicio' AND id_salon = $nSalon AND estatus = 1;";
     $resultadoV = mysqli_query($conexion, $verificacion);
     if($resultadoV->num_rows > 0){
       echo 'Existe una contratación con ese horario, por favor elija otro';

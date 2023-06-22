@@ -14,7 +14,7 @@
       require('php/verificar_sesion.php');
       require('php/conexion.php');
 
-      $sql = "SELECT c.id_contratacion, p.nombre, p.app, p.apm, c.fecha, c.hora_inicio, c.hora_fin FROM contratacion c INNER JOIN persona p ON c.id_persona = p.id_persona WHERE c.estatus = 1 ORDER BY fecha DESC;";
+      $sql = "SELECT c.id_contratacion, p.nombre, p.app, p.apm, c.fecha, c.hora_inicio, c.hora_fin, s.nombre_salon FROM contratacion c INNER JOIN persona p ON c.id_persona = p.id_persona INNER JOIN salon s ON c.id_salon = s.id_salon WHERE c.estatus = 1 ORDER BY fecha DESC;";
 
       $resultado = mysqli_query($conexion, $sql);
 
@@ -59,7 +59,7 @@
           <tr id="<?php echo $contrataciones[$i]['id_contratacion'];?>">
             <td><?php echo $contrataciones[$i]['id_contratacion'];?></td>
             <td><?php echo "{$contrataciones[$i]['nombre']} {$contrataciones[$i]['app']} {$contrataciones[$i]['apm']}";?></td>
-            <td><?php echo "{$contrataciones[$i]['fecha']} {$contrataciones[$i]['hora_inicio']} - {$contrataciones[$i]['hora_fin']}";?></td>
+            <td><?php echo "{$contrataciones[$i]['nombre_salon']} : {$contrataciones[$i]['fecha']} {$contrataciones[$i]['hora_inicio']} - {$contrataciones[$i]['hora_fin']}";?></td>
             <td><button onclick="<?php echo "borrar('{$contrataciones[$i]['id_contratacion']}')";?>"><ion-icon name="trash-outline"></ion-icon></button><button onclick="<?php echo "editar('{$contrataciones[$i]['id_contratacion']}')";?>"><ion-icon name="create-outline"></ion-icon></button></td>
           </tr>
           <?php } ?>

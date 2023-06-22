@@ -275,7 +275,7 @@
       <div class="places">
         <article class="place">
           <div class="imgBox">
-            <img src="assets/img/economico1.webp" alt="Lugar Economico 1">
+            <img src="assets/img/economico1.jpg" alt="Lugar Economico 1">
           </div>
           <div class="contentBox">
             <h3>Lugar económico 1</h3>
